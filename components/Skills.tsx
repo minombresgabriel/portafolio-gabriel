@@ -6,7 +6,7 @@ import {
   FaDatabase,
   FaWordpress,
   FaAws,
-  FaSearch,
+  
 } from 'react-icons/fa';
 import {
   SiNextdotjs,
@@ -64,14 +64,7 @@ const skillGroups = [
   },
 ];
 
-const iconVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.12, type: 'spring', stiffness: 70, damping: 15 },
-  }),
-};
+
 
 const Skills = () => {
   return (
