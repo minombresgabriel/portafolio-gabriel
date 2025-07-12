@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio Web - Gabriel Ramírez 👨‍💻
 
-## Getting Started
+Bienvenido a mi portafolio web personal. Aquí muestro algunos de los proyectos reales y personales que he desarrollado como **Full Stack Developer especializado en el stack MERN**, con experiencia adicional en `.NET Core`, `SQL Server`, y desarrollo con `WordPress + SEO`.
 
-First, run the development server:
+---
+
+## 🚀 Tecnologías principales
+
+- React.js (con Vite)
+- Node.js + Express
+- MongoDB y SQL Server
+- Tailwind CSS
+- Next.js 14 (con App Router y animaciones Framer Motion)
+- Power BI (Dashboards empresariales)
+- WordPress (con Elementor + SEO técnico)
+
+---
+
+## 🎯 Objetivo del portafolio
+
+Mostrar mi experiencia real creando soluciones web que impactan en negocios de América Latina y Europa: desde sistemas automatizados de inventario y asistencia, hasta APIs empresariales para proveedores, dashboards con Power BI y migración de sitios web profesionales en WordPress.
+
+---
+
+## 📌 Secciones del sitio
+
+- **Hero**: Introducción personal y links rápidos a contacto y proyectos
+- **Sobre mí**: Trayectoria, habilidades clave y descarga de CV
+- **Experiencia**: Panel interactivo con resumen de logros profesionales
+- **Proyectos**: Cards destacadas con tecnologías y logros por cada sistema
+- **Contacto**: Formulario funcional con envío a mi correo vía `FormSubmit`
+- **Gracias**: Página personalizada post-envío de contacto
+
+---
+
+## 🛠️ Cómo correrlo localmente
 
 ```bash
+# Clona el repositorio
+git clone https://github.com/minombresgabriel/portafolio-gabriel.git
+
+# Entra al directorio
+cd portafolio-gabriel
+
+# Instala dependencias
+npm install
+
+# Inicia el servidor de desarrollo
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📬 Contacto
+Correo: minombresgabriel@gmail.com
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+LinkedIn: linkedin.com/in/minombresgabriel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+GitHub: github.com/minombresgabriel
 
-## Learn More
+⚡ Desplegado en Vercel
+Este portafolio está desplegado con Vercel, lo que garantiza una carga rápida, CDN global y cero configuración de servidor.
 
-To learn more about Next.js, take a look at the following resources:
+🌐 Ver Portafolio en Línea
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🧠 Nota final
+Este portafolio es el reflejo de mi crecimiento y dedicación como desarrollador. Cada sección y cada línea de código están pensadas para aportar valor real.
+Estoy abierto a colaboraciones, proyectos freelance o posiciones remotas donde pueda seguir aportando soluciones que importen.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
