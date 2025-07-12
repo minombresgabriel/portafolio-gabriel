@@ -1,9 +1,36 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiSend } from 'react-icons/fi';
 
+declare global {
+  interface Window {
+    grecaptcha: any;
+  }
+}
+
 const ContactForm = () => {
+  const [token, setToken] = useState('');
+
+  useEffect(() => {
+    const loadCaptcha = () => {
+      if (window.grecaptcha) {
+        window.grecaptcha.ready(() => {
+          window.grecaptcha
+            .execute('6LenyIArAAAAAPgXu-qESFv2bMmMRBDKMyhsOit2', { action: 'submit' })
+            .then((token: string) => {
+              setToken(token);
+            });
+        });
+      }
+    };
+
+    if (typeof window !== 'undefined') {
+      loadCaptcha();
+    }
+  }, []);
+
   return (
     <section
       id="contact"
@@ -27,8 +54,9 @@ const ContactForm = () => {
         >
           {/* Configuración oculta */}
           <input type="hidden" name="_captcha" value="false" />
-<input type="hidden" name="_next" value="https://portafolio-gabriel-avq9.vercel.app/gracias" />
-          <input type="text" name="_honey" style={{ display: 'none' }} />
+          <input type="hidden" name="_next" value="https://portafolio-gabriel-avq9.vercel.app/gracias" />
+          <input type="hidden" name="_honey" style={{ display: 'none' }} />
+          <input type="hidden" name="g-recaptcha-response" value={token} />
 
           <input
             type="text"
