@@ -71,12 +71,7 @@ const Skills = () => {
     <section
       id="skills"
       className="relative py-24 px-6 md:px-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
-      style={{
-        backgroundImage:
-          'radial-gradient(circle at center, #f0f4f8 1px, transparent 1px), radial-gradient(circle at center, #f0f4f8 1px, transparent 1px)',
-        backgroundSize: '40px 40px',
-        backgroundPosition: '0 0, 20px 20px',
-      }}
+
     >
       <h2 className="text-5xl font-extrabold text-center mb-20 text-gray-900 tracking-tight select-none">
         Habilidades Técnicas
