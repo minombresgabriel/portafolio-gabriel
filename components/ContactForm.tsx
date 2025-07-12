@@ -6,28 +6,25 @@ import { FiSend } from 'react-icons/fi';
 
 declare global {
   interface Window {
-    grecaptcha: any;
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
   }
 }
 
 const ContactForm = () => {
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState<string>('');
 
   useEffect(() => {
-    const loadCaptcha = () => {
-      if (window.grecaptcha) {
-        window.grecaptcha.ready(() => {
-          window.grecaptcha
-            .execute('6LenyIArAAAAAPgXu-qESFv2bMmMRBDKMyhsOit2', { action: 'submit' })
-            .then((token: string) => {
-              setToken(token);
-            });
-        });
-      }
-    };
-
-    if (typeof window !== 'undefined') {
-      loadCaptcha();
+    if (typeof window !== 'undefined' && window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute('6LenyIArAAAAAPgXu-qESFv2bMmMRBDKMyhsOit2', { action: 'submit' })
+          .then((recaptchaToken) => {
+            setToken(recaptchaToken);
+          });
+      });
     }
   }, []);
 
@@ -54,8 +51,12 @@ const ContactForm = () => {
         >
           {/* Configuración oculta */}
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://portafolio-gabriel-avq9.vercel.app/gracias" />
-          <input type="hidden" name="_honey" style={{ display: 'none' }} />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://portafolio-gabriel-avq9.vercel.app/gracias"
+          />
+          <input type="text" name="_honey" style={{ display: 'none' }} />
           <input type="hidden" name="g-recaptcha-response" value={token} />
 
           <input
