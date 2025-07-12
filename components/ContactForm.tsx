@@ -27,7 +27,7 @@ const ContactForm = () => {
         >
           {/* Configuración oculta */}
           <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="http://localhost:3000/gracias" />
+<input type="hidden" name="_next" value="https://portafolio-gabriel-avq9.vercel.app/gracias" />
           <input type="text" name="_honey" style={{ display: 'none' }} />
 
           <input
