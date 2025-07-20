@@ -47,14 +47,16 @@ export default async function BlogPostPage({
 
           {/* Featured Image */}
           <div className="overflow-hidden rounded-2xl shadow-lg border border-white/10 mb-8 group">
-            <Image
-              src={metadata.image}
-              alt={metadata.title}
-              width={1200}
-              height={630}
-              className="w-full h-[240px] md:h-[400px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              priority
-            />
+<Image
+  src={metadata.image}
+  alt={metadata.title}
+  width={1200}
+  height={630}
+  className="w-full h-[180px] sm:h-[240px] md:h-[400px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+  priority
+/>
+
+
           </div>
 
           {/* Title and Metadata */}
