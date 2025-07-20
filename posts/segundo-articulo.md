@@ -31,21 +31,6 @@ Cuando se trabaja con aplicaciones full stack, asegurar las rutas protegidas y g
 
 Se desarrolló un middleware en Express que intercepta las peticiones a rutas protegidas y valida el JWT antes de permitir el acceso. Esto permite mantener el código modular y fácilmente reutilizable.
 
-```js
-function authMiddleware(req, res, next) {
-  const token = req.header("Authorization")?.split(" ")[1];
-  if (!token) return res.status(401).json({ message: "Acceso denegado" });
-
-  try {
-    const verified = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = verified;
-    next();
-  } catch (error) {
-    res.status(400).json({ message: "Token inválido" });
-  }
-}
-```
-
 ---
 
 Este sistema de autenticación con JWT respondió a la necesidad urgente de proteger rutas y datos sensibles en una aplicación Node.js, y terminó siendo un ejemplo concreto de cómo aplicar buenas prácticas en seguridad dentro del desarrollo backend. ¿Estás explorando soluciones similares o tienes tu propio enfoque de autenticación? ¡Será genial conocerlo!

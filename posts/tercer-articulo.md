@@ -19,37 +19,6 @@ Por eso, creé un componente modal que se puede usar fácilmente en cualquier pa
 - `useState`: Para controlar su visibilidad
 - `React Portal` (opcional): Para montar el modal fuera del flujo normal del DOM
 
-## El código del Modal
-
-```tsx
-// components/Modal.tsx
-import React from "react";
-
-type Props = {
-  isOpen: boolean;
-  onClose: () => void;
-  children: React.ReactNode;
-};
-
-export default function Modal({ isOpen, onClose, children }: Props) {
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-      <div className="bg-white rounded-xl p-6 shadow-xl w-full max-w-md relative">
-        <button
-          onClick={onClose}
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
-        >
-          ✕
-        </button>
-        {children}
-      </div>
-    </div>
-  );
-}
-```
-
 ---
 
 Este componente de modal reutilizable surgió como respuesta a la necesidad de crear interfaces más limpias y consistentes, y terminó convirtiéndose en una muestra clara de cómo React y TailwindCSS pueden potenciar la eficiencia en el desarrollo front-end. ¿Has creado algo parecido o estás pensando en integrar un modal personalizado en tu proyecto? ¡Me encantaría conocer tu enfoque!
