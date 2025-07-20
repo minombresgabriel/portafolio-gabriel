@@ -8,7 +8,7 @@ export default async function LatestBlogPosts() {
 
   return (
     <section className="p-8">
- <h2 className="text-5xl font-extrabold text-center m-20 text-gray-900 tracking-tight select-none">
+ <h2 className="text-5xl font-extrabold text-center m-20 text-gray-900 tracking-tight select-none bg-white">
         Ultimos Artículos del Blog
       </h2>      
       <div className="grid md:grid-cols-3 gap-6">
