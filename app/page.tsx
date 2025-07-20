@@ -4,6 +4,7 @@ import Skills from '../components/Skills';
 import About from '../components/About';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
+import LatestBlogPosts from '../components/LatestBlogPosts'; 
 
 
 
@@ -17,6 +18,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <About />
+      <LatestBlogPosts /> 
       <ContactForm />
       <Footer />
 

@@ -38,7 +38,7 @@ const ContactForm = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: 'easeOut' }}
         viewport={{ once: true }}
-        className="max-w-3xl mx-auto bg-white/80 backdrop-blur-md p-10 rounded-2xl shadow-xl relative z-10"
+        className="max-w-3xl mx-auto bg-white/80 backdrop-blur-md p-10 rounded-2xl border-2 border-black shadow-[6px_6px_0_#000] relative z-10"
       >
         <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-10">
           Contáctame

@@ -28,3 +28,12 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+article h2 {
+  @apply text-2xl font-bold text-white mt-8 mb-4;
+}
+article h3 {
+  @apply text-xl font-semibold text-gray-200 mt-6 mb-3;
+}
+article p {
+  @apply text-base text-gray-300 mb-4;
+}

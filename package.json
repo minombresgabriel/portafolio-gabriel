@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@tsparticles/all": "^3.8.1",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.8.1",
     "framer-motion": "^12.23.0",
+    "gray-matter": "^4.0.3",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -21,6 +23,8 @@
     "react-parallax-tilt": "^1.7.300",
     "react-tsparticles": "^2.12.2",
     "react-type-animation": "^3.2.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
     "tsparticles": "^3.8.1"
   },
   "devDependencies": {
