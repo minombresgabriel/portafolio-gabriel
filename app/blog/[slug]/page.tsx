@@ -2,7 +2,6 @@ import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
 
 
 export async function generateStaticParams() {
