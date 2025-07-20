@@ -2,19 +2,29 @@ import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { type Metadata } from "next";
 
-interface BlogPostPageProps {
+type PageProps = {
   params: {
     slug: string;
   };
-}
+};
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
   return slugs.map((slug) => ({ slug: slug.replace(/\.md$/, "") }));
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const post = await getPostBySlug(params.slug);
+  if (!post) return {};
+  return {
+    title: post.metadata.title,
+    description: post.metadata.description,
+  };
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
   const post = await getPostBySlug(params.slug);
   if (!post) return notFound();
 
@@ -24,7 +34,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white font-sans">
       <main className="flex-1 px-4 py-12 md:py-16">
         <div className="max-w-5xl mx-auto bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl shadow-2xl border border-white/20 hover:shadow-indigo-500/20 transition-shadow duration-300">
-          
+
           {/* Featured Image */}
           <div className="overflow-hidden rounded-2xl shadow-lg border border-white/10 mb-8 group">
             <Image
@@ -45,7 +55,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex items-center text-sm text-gray-400">
               <span>{metadata.date}</span>
               <span className="mx-2">•</span>
-              <span>Escrito por <span className="text-indigo-400 font-medium hover:text-indigo-300 transition-colors">{metadata.author}</span></span>
+              <span>
+                Escrito por{" "}
+                <span className="text-indigo-400 font-medium hover:text-indigo-300 transition-colors">
+                  {metadata.author}
+                </span>
+              </span>
             </div>
           </div>
 
