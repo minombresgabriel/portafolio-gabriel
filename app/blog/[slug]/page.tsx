@@ -2,18 +2,24 @@ import { getPostBySlug, getPostSlugs } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 
-// Elimina la definición de PageProps y usa tipos inline
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
-  return slugs.map((slug) => ({ slug: slug.replace(/\.md$/, "") }));
+  return slugs.map((slug) => ({ slug }));
 }
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } }
-): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  // Await params antes de acceder a sus propiedades
+  const { slug } = await params;
+  
+  // Luego usa el slug normalmente
+  const post = await getPostBySlug(slug);
+  
   if (!post) return {};
   return {
     title: post.metadata.title,
@@ -21,14 +27,18 @@ export async function generateMetadata(
   };
 }
 
-export default async function BlogPostPage(
-  { params }: { params: { slug: string } }
-) {
-  const post = await getPostBySlug(params.slug);
-  if (!post) return notFound();
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // Await params antes de acceder a sus propiedades
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+  
+  if (!post) notFound();
 
   const { metadata, contentHtml } = post;
-
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white font-sans">
