@@ -4,14 +4,15 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import { type Metadata } from "next";
 
-// Define el tipo correcto que Next.js espera
-
+// Elimina la definición de PageProps y usa tipos inline
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
   return slugs.map((slug) => ({ slug: slug.replace(/\.md$/, "") }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: { params: { slug: string } }
+): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
   if (!post) return {};
   return {
@@ -20,7 +21,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage(
+  { params }: { params: { slug: string } }
+) {
   const post = await getPostBySlug(params.slug);
   if (!post) return notFound();
 
