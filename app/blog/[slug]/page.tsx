@@ -5,10 +5,6 @@ import Footer from "@/components/Footer";
 import { type Metadata } from "next";
 
 // Define el tipo correcto que Next.js espera
-type PageProps = {
-  params: Promise<{ slug: string }>;
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
