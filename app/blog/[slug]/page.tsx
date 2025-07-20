@@ -4,17 +4,18 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import { type Metadata } from "next";
 
-interface Props {
-  params: { slug: string };
+// Define el tipo correcto que Next.js espera
+type PageProps = {
+  params: Promise<{ slug: string }>;
   searchParams?: { [key: string]: string | string[] | undefined };
-}
+};
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
   return slugs.map((slug) => ({ slug: slug.replace(/\.md$/, "") }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = await getPostBySlug(params.slug);
   if (!post) return {};
   return {
@@ -23,11 +24,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug);
   if (!post) return notFound();
 
   const { metadata, contentHtml } = post;
+
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white font-sans">
