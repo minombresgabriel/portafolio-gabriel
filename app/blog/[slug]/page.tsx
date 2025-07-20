@@ -3,17 +3,18 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
   return slugs.map((slug) => ({ slug: slug.replace(/\.md$/, "") }));
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await getPostBySlug(params.slug);
   if (!post) return notFound();
 
@@ -49,12 +50,10 @@ export default async function BlogPostPage({
           </div>
 
           {/* Article Content */}
-<article
-  className="max-w-none space-y-6 text-gray-300 text-[18px] leading-8"
-  dangerouslySetInnerHTML={{ __html: contentHtml }}
-/>
-
-
+          <article
+            className="max-w-none space-y-6 text-gray-300 text-[18px] leading-8"
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
+          />
         </div>
       </main>
 
