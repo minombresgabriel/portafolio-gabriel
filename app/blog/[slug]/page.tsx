@@ -52,7 +52,7 @@ export default async function BlogPostPage({
   alt={metadata.title}
   width={1200}
   height={630}
-  className="w-full h-[180px] sm:h-[240px] md:h-[400px] object-cover object-top transition-transform duration-700 group-hover:scale-105"
+  className="w-full h-[180px] sm:h-[240px] md:h-[400px] object-cover object-center md:object-top transition-transform duration-700 group-hover:scale-105"
   priority
 />
 
