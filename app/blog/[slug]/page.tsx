@@ -8,6 +8,7 @@ type PageProps = {
   params: {
     slug: string;
   };
+  searchParams?: Record<string, string | string[] | undefined>;
 };
 
 export async function generateStaticParams() {
@@ -32,7 +33,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 text-white font-sans">
-      <main className="flex-1 px-4 py-12 md:py-16">
+//<main className="flex-1 px-4 py-12 md:py-16">
         <div className="max-w-5xl mx-auto bg-white/10 backdrop-blur-md p-6 md:p-10 rounded-3xl shadow-2xl border border-white/20 hover:shadow-indigo-500/20 transition-shadow duration-300">
 
           {/* Featured Image */}
@@ -72,7 +73,6 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </main>
 
-      <Footer />
-    </div>
+      <Footer />    </div>
   );
 }
