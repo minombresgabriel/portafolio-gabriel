@@ -1,67 +1,66 @@
-# Portafolio Web - Gabriel Ramírez 👨‍💻
+# Web Portfolio - Gabriel Ramirez 👨‍💻
 
-Bienvenido a mi portafolio web personal. Aquí muestro algunos de los proyectos reales y personales que he desarrollado como **Full Stack Developer especializado en el stack MERN**, con experiencia adicional en `.NET Core`, `SQL Server`, y desarrollo con `WordPress + SEO`.
+Welcome to my personal web portfolio. Here I show some of the real and personal projects I have developed as **Full Stack Developer specialized in the MERN stack**, with additional experience in `.NET Core`, `SQL Server`, and development with `WordPress + SEO`.
 
 ---
 
-## 🚀 Tecnologías principales
+## 🚀 Main technologies.
 
-- React.js (con Vite)
+- React.js (with Vite)
 - Node.js + Express
-- MongoDB y SQL Server
+- MongoDB and SQL Server
 - Tailwind CSS
-- Next.js 14 (con App Router y animaciones Framer Motion)
-- Power BI (Dashboards empresariales)
-- WordPress (con Elementor + SEO técnico)
+- Next.js 14 (with App Router and Framer Motion animations)
+- Power BI (Enterprise Dashboards)
+- WordPress (with Elementor + Technical SEO)
 
 ---
 
-## 🎯 Objetivo del portafolio
+## 🎯 Portfolio Objective.
 
-Mostrar mi experiencia real creando soluciones web que impactan en negocios de América Latina y Europa: desde sistemas automatizados de inventario y asistencia, hasta APIs empresariales para proveedores, dashboards con Power BI y migración de sitios web profesionales en WordPress.
-
----
-
-## 📌 Secciones del sitio
-
-- **Hero**: Introducción personal y links rápidos a contacto y proyectos
-- **Sobre mí**: Trayectoria, habilidades clave y descarga de CV
-- **Experiencia**: Panel interactivo con resumen de logros profesionales
-- **Proyectos**: Cards destacadas con tecnologías y logros por cada sistema
-- **Contacto**: Formulario funcional con envío a mi correo vía `FormSubmit`
-- **Gracias**: Página personalizada post-envío de contacto
+Showcase my real-world experience creating web solutions that impact businesses in Latin America and Europe: from automated inventory and attendance systems, to enterprise APIs for suppliers, dashboards with Power BI and migration of professional WordPress websites.
 
 ---
 
-## 🛠️ Cómo correrlo localmente
+## 📌 Site Sections.
 
-```bash
-# Clona el repositorio
+- **Hero**: Personal introduction and quick links to contact and projects.
+- About me**: Track record, key skills and CV download
+- Experience**: Interactive dashboard with summary of professional achievements
+- Projects**: Highlighted cards with technologies and achievements for each system
+- Contact me**: Functional form with submission to my email via `FormSubmit`.
+- Thank you**: Customized post-submit contact page
+
+---
+
+## 🛠️ How to run it locally
+
+````bash
+# Clone the repository
 git clone https://github.com/minombresgabriel/portafolio-gabriel.git
 
-# Entra al directorio
-cd portafolio-gabriel
+# Enter the directory
+cd portfolio-gabriel
 
-# Instala dependencias
+# Install dependencies
 npm install
 
-# Inicia el servidor de desarrollo
+# Start the development server
 npm run dev
 
-📬 Contacto
-Correo: minombresgabriel@gmail.com
+📬 Contact
+Email: minombresgabriel@gmail.com
 
 LinkedIn: linkedin.com/in/minombresgabriel
 
 GitHub: github.com/minombresgabriel
 
-⚡ Desplegado en Vercel
-Este portafolio está desplegado con Vercel, lo que garantiza una carga rápida, CDN global y cero configuración de servidor.
+⚡ Deployed on Vercel
+This portfolio is deployed with Vercel, which guarantees fast loading, global CDN and zero server configuration.
 
-🌐 Ver Portafolio en Línea
+🌐 View Online Portfolio.
 
-🧠 Nota final
-Este portafolio es el reflejo de mi crecimiento y dedicación como desarrollador. Cada sección y cada línea de código están pensadas para aportar valor real.
-Estoy abierto a colaboraciones, proyectos freelance o posiciones remotas donde pueda seguir aportando soluciones que importen.
-
+🧠 Final note
+This portfolio is a reflection of my growth and dedication as a developer. Every section and every line of code is meant to bring real value.
+I am open to collaborations, freelance projects or remote positions where I can continue to bring solutions that matter.
 
