@@ -9,7 +9,7 @@ export default async function LatestBlogPosts() {
   return (
     <section className="p-8 bg-white">
  <h2 className="text-5xl font-extrabold text-center m-20 text-gray-900 tracking-tight select-none">
-        Ultimos Artículos del Blog
+        Latest Blog Articles
       </h2>      
       <div className="grid md:grid-cols-3 gap-6">
         {latest.map(({ slug, metadata }) => (

@@ -17,11 +17,11 @@ const Footer = () => {
       {/* Contenido arriba del fondo */}
       <div className="relative max-w-5xl mx-auto text-center space-y-4 z-10">
         <p className="text-sm tracking-wide">
-          © {year} <span className="font-semibold text-white">Gabriel Ramírez</span>. Todos los derechos reservados.
+          © {year} <span className="font-semibold text-white">Gabriel Ramírez</span>. All rights reserved.
         </p>
 
         <p className="text-sm">
-          Desarrollado con{' '}
+          Developed with{' '}
           <span className="text-blue-400 hover:text-blue-500 transition duration-300 font-medium cursor-pointer">
             Next.js
           </span>{' '}

@@ -23,7 +23,7 @@ export default function BlogCard({ slug, title, image, date, author }: BlogCardP
           />
           <div className="p-4">
             <h2 className="text-xl font-bold mb-1 text-black">{title}</h2>
-            <p className="text-sm text-gray-700">{date} — Autor {author}</p>
+            <p className="text-sm text-gray-700">{date} — Author {author}</p>
           </div>
         </div>
       </div>

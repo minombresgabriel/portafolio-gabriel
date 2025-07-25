@@ -73,8 +73,8 @@ const Skills = () => {
       className="relative py-24 px-6 md:px-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden"
     >
       <h2 className="text-5xl font-extrabold text-center mb-20 text-gray-900 tracking-tight select-none">
-        Habilidades Técnicas
-      </h2>
+        Technical Skills
+              </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 z-10 relative">
         {skillGroups.map((group, index) => (

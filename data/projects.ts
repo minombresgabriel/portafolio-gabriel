@@ -10,81 +10,81 @@ export interface Project {
 
 export const projects: Project[] = [
 {
-  title: "Sistema de Inventario y Ventas",
+  title: "Inventory and Sales System",
   description:
-    "Aplicación web full-stack desarrollada para automatizar el control de stock y ventas en una tienda. Incluye panel de administración, alertas de productos bajos en inventario y generación de reportes.",
+    "Full-stack web application developed to automate stock control and sales in a store. Includes administration panel, low inventory alerts, and report generation.",
   tech: ["React", "Vite", "Node.js", "Express", "JavaScript", "MySQL", "Bootstrap","CSS"],
   image: "/images/proyectos/inventario.png",
   github: "https://github.com/minombresgabriel/inventory-system", // cambia si es privado
   achievements: [
-    "Redujo un 30% el tiempo de gestión de inventario en Tienda Ananda Shop",
-    "Alertas automáticas por bajo stock y reportes mensuales de ventas",
+    "Reduced inventory management time at Ananda Shop by 30%",
+    "Automatic low stock alerts and monthly sales reports",
   ]
 }
 ,
 {
-  title: "Sistema de Proveedores para Unicasa",
+  title: "Supplier System for Unicasa",
   description:
-    "Aplicación web completa desarrollada para proveedores de Unicasa (como Coca-Cola) para consultar cuentas por pagar. Incluye backend en .NET Core y frontend en React, con base de datos SQL Server.",
+    "Complete web application developed for Unicasa suppliers (such as Coca-Cola) to check accounts payable. Includes backend in .NET Core and frontend in React, with SQL Server database.",
   tech: [".NET Core", "React", "TypeScript", "Vite", "SQL Server", "IIS", "Bootstrap"],
   image: "/images/proyectos/sistema-proveedores.png",
   github: "https://github.com/minombresgabriel/sistema-proveedores", // si no es público, omite esto
   achievements: [
-    "Procesó 500+ solicitudes/día con menos de 100ms de respuesta",
-    "Desplegada en IIS y usada por proveedores reales",
-    "Autenticación segura y consultas en tiempo real"
+    "Processed 500+ requests/day with less than 100ms response time",
+    "Deployed on IIS and used by real providers",
+    "Secure authentication and real-time queries"
   ]
 }
 ,
 {
-  title: "Sistema de Asistencias Automatizado",
+  title: "Automated Assistance System",
   description:
-    "Aplicación web para el control automatizado de asistencias. Permite el inicio de sesión con cédula y pin, registra entradas en tiempo real y ofrece un panel de administración para la gestión de usuarios y visualización de registros diarios.",
+    "Web application for automated attendance control. It allows users to log in with their ID card and PIN, records entries in real time, and offers an administration panel for user management and viewing daily records.",
   tech: ["React", "Node.js", "Express", "JavaScript", "MongoDB", "Bootstrap"],
   image: "/images/proyectos/asistencias.png", // usa una imagen real del sistema si tienes
   github: "https://github.com/minombresgabriel/sistema-asistencia", // cámbialo si tienes el repo real
   achievements: [
-    "Automatiza el control de asistencias con validación por cédula y pin",
-    "Panel administrativo para consultas, registros y estadísticas diarias",
-    "Desarrollado como proyecto académico con enfoque profesional"
+    "Automates attendance control with ID card and PIN validation.",
+    "Administrative panel for queries, records, and daily statistics.",
+    "Developed as an academic project with a professional focus."
   ]
 },
 {
-  title: "Sitios WordPress y SEO para empresas europeas",
+  title: "WordPress sites and SEO for European companies",
   description:
-    "Migración, rediseño y optimización de múltiples sitios WordPress para Hatél Studio. Implementé mejoras de rendimiento, SEO técnico y usabilidad, utilizando Elementor y herramientas como GTmetrix y PageSpeed Insights.",
+    "Migration, redesign, and optimization of multiple WordPress sites for Hatél Studio. I implemented performance, technical SEO, and usability improvements using Elementor and tools such as GTmetrix and PageSpeed Insights.",
   tech: ["WordPress", "SEO", "GTmetrix", "Elementor"],
   image: "/images/proyectos/wordpress.png",
   achievements: [
-    "Puntuación 95+ en Lighthouse para SEO y rendimiento web",
-    "Migración completa y optimización de 10+ sitios WordPress",
-    "Mejoras visibles en posicionamiento y velocidad de carga"
+    "95+ score in Lighthouse for SEO and web performance",
+    "Complete migration and optimization of 10+ WordPress sites",
+    "Visible improvements in positioning and loading speed"
   ]
 }
 ,
 {
-  title: "Dashboard Power BI – Propuesta para Mitsubishi",
+  title: "Power BI Dashboard – Proposal for Mitsubishi,",
   description:
-    "Diseñé un dashboard interactivo en Power BI como propuesta empresarial de Mitsubishi, extrayendo y modelando datos desde Microsoft Access. Transformé información cruda en visualizaciones efectivas para toma de decisiones.",
+    "I designed an interactive dashboard in Power BI as a business proposal for Mitsubishi, extracting and modeling data from Microsoft Access. I transformed raw information into effective visualizations for decision-making.",
   tech: ["Power BI", "Microsoft Access", "Excel", "DAX"],
   image: "/images/proyectos/powerbi-mitsubishi.png",
   achievements: [
-    "Extracción y modelado de datos desde Access para KPIs clave",
-    "Visualizaciones claras de métricas comerciales y operativas",
-    "Presentación ejecutiva con storytelling visual enfocado en insights"
+    "Extraction and modeling of data from Access for key KPIs",
+    "Clear visualizations of business and operational metrics",
+    "Executive presentation with visual storytelling focused on insights"
   ]
 }
 ,
 {
-  title: "Dashboard de Ventas – Industria de Refrescos en EE. UU.",
+  title: "Sales Dashboard – Soft Drink Industry in the US",
   description:
-    "Creé un dashboard en Power BI usando tablas de Excel con datos reales de ventas de bebidas. Incluyó segmentación por regiones, análisis temporal, proyecciones y comparativas visuales.",
+    "I created a dashboard in Power BI using Excel tables with real beverage sales data. It included segmentation by region, time analysis, projections, and visual comparisons.",
   tech: ["Power BI", "Excel", "DAX", "Segmentación de Datos"],
   image: "/images/proyectos/powerbi-soda.png",
   achievements: [
-    "Análisis completo de ventas históricas por estado y producto",
-    "Segmentación interactiva y proyecciones dinámicas",
-    "Presentación visual clara para toma de decisiones rápida"
+    "Comprehensive analysis of historical sales by state and product",
+    "Interactive segmentation and dynamic projections",
+    "Clear visual presentation for quick decision-making"
   ]
 }
 

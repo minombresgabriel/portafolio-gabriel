@@ -19,8 +19,8 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-5xl font-extrabold text-center mb-16 text-gray-900"
         >
-          Proyectos Destacados
-        </motion.h2>
+          Featured Projects
+                  </motion.h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((proj, index) => (
@@ -76,7 +76,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-white bg-blue-600 px-4 py-2 rounded-md font-medium text-sm transition"
                   >
-                    <FaGithub /> Ver código en GitHub
+                    <FaGithub /> See code on GitHub
                   </a>
                 )}
               </div>

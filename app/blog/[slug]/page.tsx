@@ -47,7 +47,7 @@ export default async function BlogPostPage({
 
           {/* Featured Image */}
           <div className="overflow-hidden rounded-2xl shadow-lg border border-white/10 mb-8 group">
-<Image
+  <Image
   src={metadata.image}
   alt={metadata.title}
   width={1200}
@@ -68,7 +68,7 @@ export default async function BlogPostPage({
               <span>{metadata.date}</span>
               <span className="mx-2">•</span>
               <span>
-                Escrito por{" "}
+                Written by{" "}
                 <span className="text-indigo-400 font-medium hover:text-indigo-300 transition-colors">
                   {metadata.author}
                 </span>

@@ -41,7 +41,7 @@ const ContactForm = () => {
         className="max-w-3xl mx-auto bg-white/80 backdrop-blur-md p-10 rounded-2xl border-2 border-black shadow-[6px_6px_0_#000] relative z-10"
       >
         <h2 className="text-4xl font-extrabold text-center text-gray-900 mb-10">
-          Contáctame
+          Contact Me
         </h2>
 
         <form
@@ -63,7 +63,7 @@ const ContactForm = () => {
             type="text"
             name="name"
             required
-            placeholder="Tu nombre"
+            placeholder="Name"
             className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           />
 
@@ -71,7 +71,7 @@ const ContactForm = () => {
             type="email"
             name="email"
             required
-            placeholder="Tu correo electrónico"
+            placeholder="Email"
             className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
           />
 
@@ -79,7 +79,7 @@ const ContactForm = () => {
             name="message"
             rows={5}
             required
-            placeholder="Tu mensaje..."
+            placeholder="Your message..."
             className="w-full px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none"
           ></textarea>
 
@@ -89,7 +89,7 @@ const ContactForm = () => {
             type="submit"
             className="mt-2 inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300"
           >
-            <FiSend className="mr-2" /> Enviar mensaje
+            <FiSend className="mr-2" /> Send message
           </motion.button>
         </form>
       </motion.div>

@@ -38,9 +38,9 @@ const Hero = () => {
           sequence={[
             'Full Stack Developer - MERN',
             2000,
-            'Especialista Backend en APIs y Automatización',
+            'Backend Specialist in APIs and Automation',
             2000,
-            'Aplicaciones Web Profesionales y Escalables',
+            'Professional and Scalable Web Applications',
             2000,
           ]}
           wrapper="h2"
@@ -50,7 +50,7 @@ const Hero = () => {
         />
 
         <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mb-10">
-          Soy Full Stack Developer con experiencia en desarrollo de sistemas que digitalizan procesos y aumentan ingresos. Trabajo con tecnologías modernas para entregar productos web robustos, escalables y profesionales para negocios reales.
+      I am a Full Stack Developer with experience in developing systems that digitize processes and increase revenue. I work with modern technologies to deliver robust, scalable, and professional web products for real businesses.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -58,13 +58,13 @@ const Hero = () => {
             href="#projects"
             className="w-full max-w-[250px] sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center"
           >
-            Ver mis proyectos
+      See my projects
           </a>
           <a
             href="#contact"
             className="w-full max-w-[250px] sm:w-auto border border-white hover:bg-white hover:text-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center"
           >
-            Contáctame
+            Contact me
           </a>
         </div>
       </div>

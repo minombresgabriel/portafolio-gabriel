@@ -17,17 +17,17 @@ const GraciasPage = () => {
           <FiCheckCircle className="text-green-400 text-6xl" />
         </div>
 
-        <h1 className="text-3xl font-bold mb-4">¡Gracias por tu mensaje!</h1>
+        <h1 className="text-3xl font-bold mb-4">Thank you for your message!</h1>
         <p className="text-gray-300 mb-6">
-          He recibido tu mensaje correctamente. Me pondré en contacto contigo lo antes posible.
-        </p>
+          I have received your message correctly. I will contact you as soon as possible.
+                  </p>
 
         <Link
           href="/"
           className="inline-block mt-4 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold transition duration-300"
         >
-          Volver al inicio
-        </Link>
+          Back to top
+                  </Link>
       </motion.div>
     </section>
   );

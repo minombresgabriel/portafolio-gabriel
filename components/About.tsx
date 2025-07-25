@@ -44,23 +44,23 @@ const About = () => {
           custom={0}
 className="text-5xl font-extrabold mb-8 tracking-tight text-cyan-400 text-center md:text-left"
         >
-          Sobre Mí
+                    About Me
         </motion.h2>
 
         <motion.p custom={1} className="text-lg leading-relaxed mb-6 text-gray-300 ">
-          Soy <strong className="text-white font-semibold">Gabriel Ramírez</strong>, desarrollador venezolano de 24 años apasionado por crear soluciones eficientes y limpias mediante código. Técnico Superior en Informática con experiencia real en proyectos para empresas en Latinoamérica y Europa.
+           I am <strong className="text-white font-semibold">Gabriel Ramírez</strong>,  a 24-year-old  developer who is passionate about creating efficient and clean solutions through code. I am a Senior IT Technician with real experience in projects for companies in Latin America and Europe.
         </motion.p>
 
-        <motion.p custom={2}  className="text-lg leading-relaxed mb-6 text-gray-400">
-          Trabajo con tecnologías como <strong className="text-cyan-400 font-semibold">MERN</strong>, <strong className="text-cyan-400 font-semibold">.NET Core</strong> y <strong className="text-cyan-400 font-semibold">WordPress</strong>. Me adapto rápido a nuevos desafíos gracias a mi enfoque autodidacta y el uso de herramientas de inteligencia artificial.
+        <motion.p custom={2}  className="text-lg leading-relaxed mb-6 text-gray-300">
+          I work with technologies such as <strong className="text-cyan-400 font-semibold">MERN</strong>, <strong className="text-cyan-400 font-semibold">.NET Core</strong> y <strong className="text-cyan-400 font-semibold">WordPress</strong>. I adapt quickly to new challenges thanks to my self-taught approach and the use of artificial intelligence tools.
         </motion.p>
 
-        <motion.p custom={3}  className="text-lg leading-relaxed mb-6 text-gray-400">
-          En solo <strong className="text-cyan-400 font-semibold">2 semanas</strong> aprendí .NET Core desde cero y desplegué una API profesional usada por proveedores reales.
+        <motion.p custom={3}  className="text-lg leading-relaxed mb-6 text-gray-300">
+          In just <strong className="text-cyan-400 font-semibold">2 weeks</strong> I learned .NET Core from scratch and deployed a professional API used by real providers.
         </motion.p>
 
-        <motion.p custom={4}  className="text-lg leading-relaxed mb-8 text-gray-400">
-          Mi objetivo es generar un impacto real y tangible con cada solución que desarrollo. Busco oportunidades donde pueda aportar valor.
+        <motion.p custom={4}  className="text-lg leading-relaxed mb-8 text-gray-300">
+          My goal is to make a real and tangible impact with every solution I develop. I look for opportunities where I can add value.
         </motion.p>
 
 <div className="flex justify-center md:justify-start">

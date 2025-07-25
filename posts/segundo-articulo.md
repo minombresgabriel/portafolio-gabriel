@@ -1,36 +1,36 @@
 ---
-title: "Cómo integré autenticación segura con JWT en un proyecto Node.js"
+title: "How I Integrated Secure Authentication with JWT in a Node.js Project"
 date: "2025-07-20"
 author: "Gabriel Ramírez"
 image: "/images/posts/jwt-authentication.png"
 ---
 
-Uno de los elementos clave en cualquier aplicación web moderna es la autenticación. En este artículo explico cómo implementé un sistema de autenticación robusto utilizando JSON Web Tokens (JWT) en un proyecto con Node.js y Express.
+One of the key components in any modern web application is authentication. In this article, I explain how I implemented a robust authentication system using JSON Web Tokens (JWT) in a Node.js and Express project.
 
-## El problema de fondo
+## The Underlying Issue
 
-Cuando se trabaja con aplicaciones full stack, asegurar las rutas protegidas y garantizar que solo los usuarios autorizados accedan a ciertas funcionalidades es una prioridad. Para lograr esto, se requiere una estrategia eficiente y segura de autenticación y autorización.
+When working with full-stack applications, securing protected routes and ensuring that only authorized users can access specific functionalities is a top priority. To achieve this, an efficient and secure authentication and authorization strategy is essential.
 
-## Tecnologías implementadas
+## Technologies Used
 
-- **Node.js + Express:** Backend con endpoints RESTful
-- **MongoDB + Mongoose:** Base de datos y modelo de usuario
-- **bcrypt:** Encriptación de contraseñas
-- **jsonwebtoken (JWT):** Generación y verificación de tokens
-- **Postman:** Pruebas de rutas protegidas
+- **Node.js + Express:** Backend with RESTful endpoints
+- **MongoDB + Mongoose:** Database and user schema
+- **bcrypt:** Password encryption
+- **jsonwebtoken (JWT):** Token generation and verification
+- **Postman:** Route testing for protected endpoints
 
-## Flujo de autenticación
+## Authentication Flow
 
-1. El usuario se registra con sus datos y contraseña.
-2. La contraseña se encripta con `bcrypt` antes de ser almacenada.
-3. Al iniciar sesión, se valida la contraseña y se genera un JWT con datos esenciales del usuario.
-4. El token se devuelve al cliente y se usa en cada solicitud a rutas protegidas, a través del header `Authorization`.
-5. El backend verifica el token en cada ruta protegida antes de responder.
+1. The user registers with their data and password.
+2. The password is encrypted using bcrypt before being stored.
+3. When logging in, the password is validated and a JWT containing essential user information is generated.
+4. The token is sent back to the client and used in every request to protected routes via the Authorization header.
+5. The backend validates the token on each protected route before responding.
 
-## Middleware de protección
+## Protection Middleware
 
-Se desarrolló un middleware en Express que intercepta las peticiones a rutas protegidas y valida el JWT antes de permitir el acceso. Esto permite mantener el código modular y fácilmente reutilizable.
+I developed middleware in Express that intercepts requests to protected routes and validates the JWT before granting access. This keeps the code modular and highly reusable.
 
 ---
 
-Este sistema de autenticación con JWT respondió a la necesidad urgente de proteger rutas y datos sensibles en una aplicación Node.js, y terminó siendo un ejemplo concreto de cómo aplicar buenas prácticas en seguridad dentro del desarrollo backend. ¿Estás explorando soluciones similares o tienes tu propio enfoque de autenticación? ¡Será genial conocerlo!
+This JWT-based authentication system addressed the urgent need to secure routes and sensitive data in a Node.js application, and ended up being a clear example of applying backend security best practices. Are you exploring similar solutions or have your own approach to authentication? I'd love to hear about it!

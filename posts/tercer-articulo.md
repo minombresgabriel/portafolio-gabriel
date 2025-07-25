@@ -1,24 +1,24 @@
 ---
-title: "Cómo crear un Modal Reutilizable con React y TailwindCSS"
+title: "How to Build a Reusable Modal with React and TailwindCSS"
 date: "2025-07-20"
 author: "Gabriel Ramírez"
 image: "/images/posts/react-modal.png"
 ---
 
-En muchas interfaces modernas, los modales son esenciales para mostrar información sin redirigir al usuario a otra página. En este artículo te muestro cómo desarrollé un modal completamente reutilizable usando **React** y **TailwindCSS**.
+In many modern interfaces, modals are essential for displaying information without redirecting users to a different page. In this article, I’ll walk you through how I developed a fully reusable modal using React and TailwindCSS.
 
-## ¿Por qué usar un modal reutilizable?
+## Why Use a Reusable Modal?
 
-Los modales son componentes que aparecen encima del contenido principal y sirven para mostrar alertas, formularios, confirmaciones o detalles. Si no se manejan correctamente, pueden generar duplicación de código o errores de accesibilidad.
+Modals are components that appear on top of the main content to show alerts, forms, confirmations, or details. If not properly managed, they can lead to code duplication or accessibility issues.
 
-Por eso, creé un componente modal que se puede usar fácilmente en cualquier parte del proyecto simplemente llamándolo con props.
+That’s why I created a modal component that can be easily reused throughout the project—simply by calling it with props.
 
-## Componentes usados
+## Components Used
 
-- `Modal.tsx`: El componente base
-- `useState`: Para controlar su visibilidad
-- `React Portal` (opcional): Para montar el modal fuera del flujo normal del DOM
+- `Modal.tsx`: The base component
+- `useState`: To control visibility
+- `React Portal` (optional): To mount the modal outside the normal DOM flow
 
 ---
 
-Este componente de modal reutilizable surgió como respuesta a la necesidad de crear interfaces más limpias y consistentes, y terminó convirtiéndose en una muestra clara de cómo React y TailwindCSS pueden potenciar la eficiencia en el desarrollo front-end. ¿Has creado algo parecido o estás pensando en integrar un modal personalizado en tu proyecto? ¡Me encantaría conocer tu enfoque!
+This reusable modal component was born out of a need to create cleaner and more consistent interfaces, and it became a clear example of how React and TailwindCSS can boost front-end development efficiency. Have you built something similar or are thinking about integrating a custom modal in your project? I’d love to hear your take on it!
