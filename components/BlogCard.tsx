@@ -19,10 +19,11 @@ export default function BlogCard({ slug, title, image, date, author }: BlogCardP
   alt={title}
   width={800}
   height={400}
-  sizes="(max-width: 768px) 100vw, 33vw"
-  className="object-cover object-center w-full h-48 md:h-64"
-  priority
+className="object-cover object-top w-full h-48 md:h-56 lg:h-64"
+  loading="lazy"
+  priority={false}
 />
+
 
 
           <div className="p-4">
