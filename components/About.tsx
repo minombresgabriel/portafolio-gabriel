@@ -12,7 +12,7 @@ const About = () => {
       className="relative bg-gradient-to-b from-gray-950 to-gray-900 text-white py-28 px-6 md:px-20 text-center overflow-hidden min-h-screen flex flex-col md:flex-row items-center md:items-stretch"
     >
       {/* Imagen lado izquierdo */}
-      <div className="relative w-full md:w-1/2 h-72 md:h-auto flex justify-center items-center mb-10 md:mb-0">
+<div className="relative w-full md:w-1/2 h-60 sm:h-64 md:h-auto flex justify-center items-center mb-10 md:mb-0">
         <motion.div
           initial={{ scale: 0.9, opacity: 0, rotate: -3 }}
           animate={{ scale: 1, opacity: 1, rotate: 0 }}
@@ -22,14 +22,16 @@ const About = () => {
           tabIndex={0}
           aria-label="Foto de Gabriel Ramírez"
         >
-          <Image
-            src="/images/gabriel.png"
-            alt="Gabriel Ramírez"
-            fill
-            sizes="(max-width: 768px) 280px, 384px"
-            className="object-cover rounded-full"
-            priority
-          />
+<Image
+  src="/images/gabriel.png"
+  alt="Gabriel Ramírez"
+  fill
+  sizes="(max-width: 768px) 200px, 384px"
+  className="object-cover md:object-center object-top rounded-full"
+  priority
+/>
+
+
         </motion.div>
       </div>
 

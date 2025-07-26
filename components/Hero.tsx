@@ -5,7 +5,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-b from-gray-950 to-gray-900 text-white py-28 px-6 md:px-20 text-center overflow-hidden">
+<section className="relative bg-gradient-to-b from-gray-950 to-gray-900 text-white py-16 md:py-28 px-6 md:px-20 text-center overflow-hidden">
       {/* Fondo decorativo SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-5">
         <svg
@@ -21,33 +21,35 @@ const Hero = () => {
 
       {/* Contenido */}
       <div className="relative z-10 max-w-4xl mx-auto">
-        <Image
-          src="/images/gabriel.png"
-          alt="Gabriel Ramírez"
-          width={160}
-          height={160}
-          className="rounded-full mx-auto mb-6 border-4 border-white shadow-xl hover:scale-105 transition-transform duration-300"
-          priority
-        />
+<Image
+  src="/images/gabriel.png"
+  alt="Gabriel Ramírez"
+  width={160}
+  height={160}
+  sizes="(max-width: 768px) 96px, 160px"
+className="rounded-full mx-auto mb-6 border-4 border-white md:shadow-xl md:hover:scale-105 transition-transform duration-300"
+  priority
+/>
+
 
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight">
           Gabriel Ramírez
         </h1>
 
-        <TypeAnimation
-          sequence={[
-            'Full Stack Developer - MERN',
-            2000,
-            'Backend Specialist in APIs and Automation',
-            2000,
-            'Professional and Scalable Web Applications',
-            2000,
-          ]}
-          wrapper="h2"
-          speed={50}
-          className="text-xl md:text-2xl font-medium text-cyan-400 mb-8"
-          repeat={Infinity}
-        />
+<TypeAnimation
+  sequence={[
+    'Full Stack Developer - MERN',
+    2000,
+    'Backend Specialist in APIs and Automation',
+    2000,
+    'Professional and Scalable Web Applications',
+    2000,
+  ]}
+  wrapper="h2"
+  speed={50}
+  className="text-xl md:text-2xl font-medium text-cyan-400 mb-8 motion-safe:animate-pulse"
+  repeat={Infinity}
+/>
 
         <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-400 mb-10">
       I am a Full Stack Developer with experience in developing systems that digitize processes and increase revenue. I work with modern technologies to deliver robust, scalable, and professional web products for real businesses.

@@ -7,22 +7,23 @@ export default async function LatestBlogPosts() {
   const latest = posts.slice(0, 3); // Solo los 3 más recientes
 
   return (
-    <section className="p-8 bg-white">
- <h2 className="text-5xl font-extrabold text-center m-20 text-gray-900 tracking-tight select-none">
-        Latest Blog Articles
-      </h2>      
-      <div className="grid md:grid-cols-3 gap-6">
-        {latest.map(({ slug, metadata }) => (
-          <BlogCard
-            key={slug}
-            slug={slug}
-            title={metadata.title}
-            image={metadata.image}
-            date={metadata.date}
-            author={metadata.author}
-          />
-        ))}
-      </div>
-    </section>
+ <section className="p-6 sm:p-8 bg-white">
+  <h2 className="text-3xl sm:text-5xl font-extrabold text-center mb-12 sm:mb-20 text-gray-900 tracking-tight select-none">
+    Latest Blog Articles
+  </h2>      
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {latest.map(({ slug, metadata }) => (
+      <BlogCard
+        key={slug}
+        slug={slug}
+        title={metadata.title}
+        image={metadata.image}
+        date={metadata.date}
+        author={metadata.author}
+      />
+    ))}
+  </div>
+</section>
+
   );
 }

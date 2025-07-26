@@ -33,14 +33,16 @@ const Projects = () => {
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 overflow-hidden transform hover:-translate-y-2 transition-all duration-500 ease-in-out group"
             >
               <div className="overflow-hidden">
-                <Image
-                  src={proj.image}
-                  alt={proj.title}
-                  width={800}
-                  height={300}
-                  className="w-full h-66 object-cover transition-transform duration-700 ease-in-out group-hover:scale-105  "
-                  priority={index === 0}
-                />
+<Image
+  src={proj.image}
+  alt={proj.title}
+  width={800}
+  height={300}
+className="w-full h-66 object-cover transition-transform duration-700 ease-in-out md:group-hover:scale-105"
+  priority={index === 0}
+  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+/>
+
               </div>
 
               <div className="p-6">
