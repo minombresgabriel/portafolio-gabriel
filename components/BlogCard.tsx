@@ -20,8 +20,7 @@ export default function BlogCard({ slug, title, image, date, author }: BlogCardP
   width={800}
   height={400}
   className="object-cover object-top w-full h-48"
-  loading="lazy"
-  placeholder="blur"
+  priority
 />
 
 

@@ -28,8 +28,7 @@ const About = () => {
   fill
   sizes="(max-width: 768px) 200px, 384px"
   className="object-cover md:object-center object-top rounded-full"
-  loading="lazy"
-/>
+priority/>
 
 
         </motion.div>
