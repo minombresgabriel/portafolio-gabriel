@@ -70,7 +70,7 @@ className="text-5xl font-extrabold mb-8 tracking-tight text-cyan-400 text-center
     download
     className="inline-block px-10 py-4 rounded-xl bg-cyan-500 hover:bg-cyan-600 text-white font-semibold shadow-lg transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-400"
   >
-    Descargar CV
+    Download CV
   </motion.a>
 </div>
 
