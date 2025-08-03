@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Ramírez | Desarrollador Full Stack",
+  title: "Gabriel Ramírez | Full Stack Developer",
   description:
-    "Portafolio profesional de Gabriel Ramírez, desarrollador full stack con experiencia en MERN, .NET y más.",
+    "Professional portfolio of Gabriel Ramírez, full stack developer with experience in MERN, .NET, and more.",
   keywords: [
     "Gabriel Ramírez",
     "desarrollador",

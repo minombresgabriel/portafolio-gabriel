@@ -49,44 +49,6 @@ export const projects: Project[] = [
     "Developed as an academic project with a professional focus."
   ]
 },
-{
-  title: "WordPress sites and SEO for European companies",
-  description:
-    "Migration, redesign, and optimization of multiple WordPress sites for Hatél Studio. I implemented performance, technical SEO, and usability improvements using Elementor and tools such as GTmetrix and PageSpeed Insights.",
-  tech: ["WordPress", "SEO", "GTmetrix", "Elementor"],
-  image: "/images/proyectos/wordpress.png",
-  achievements: [
-    "95+ score in Lighthouse for SEO and web performance",
-    "Complete migration and optimization of 10+ WordPress sites",
-    "Visible improvements in positioning and loading speed"
-  ]
-}
-,
-{
-  title: "Power BI Dashboard – Proposal for Mitsubishi,",
-  description:
-    "I designed an interactive dashboard in Power BI as a business proposal for Mitsubishi, extracting and modeling data from Microsoft Access. I transformed raw information into effective visualizations for decision-making.",
-  tech: ["Power BI", "Microsoft Access", "Excel", "DAX"],
-  image: "/images/proyectos/powerbi-mitsubishi.png",
-  achievements: [
-    "Extraction and modeling of data from Access for key KPIs",
-    "Clear visualizations of business and operational metrics",
-    "Executive presentation with visual storytelling focused on insights"
-  ]
-}
-,
-{
-  title: "Sales Dashboard – Soft Drink Industry in the US",
-  description:
-    "I created a dashboard in Power BI using Excel tables with real beverage sales data. It included segmentation by region, time analysis, projections, and visual comparisons.",
-  tech: ["Power BI", "Excel", "DAX", "Segmentación de Datos"],
-  image: "/images/proyectos/powerbi-soda.png",
-  achievements: [
-    "Comprehensive analysis of historical sales by state and product",
-    "Interactive segmentation and dynamic projections",
-    "Clear visual presentation for quick decision-making"
-  ]
-}
 
   
 ];

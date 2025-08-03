@@ -41,7 +41,7 @@ const Projects = () => {
                   alt={proj.title}
                   width={800}
                   height={300}
-                  className="w-full h-56 object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  className="w-full h- object-cover object-top transition-transform duration-700 ease-in-out group-hover:scale-105"
                   priority
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />

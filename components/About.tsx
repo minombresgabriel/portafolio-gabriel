@@ -49,7 +49,7 @@ const About = () => {
         </motion.h2>
 
         <p className="text-lg leading-relaxed mb-6 text-gray-300">
-          I am <strong className="text-white font-semibold">Gabriel Ramírez</strong>, a 24-year-old developer passionate about creating efficient and clean solutions through code. I am a Senior IT Technician with real experience in projects for companies in Latin America and Europe.
+          I am <strong className="text-white font-semibold">Gabriel Ramírez</strong>, a developer passionate about creating efficient and clean solutions through code. I am a Senior IT Technician with real experience in projects for companies in Latin America and Europe.
         </p>
 
         <p className="text-lg leading-relaxed mb-6 text-gray-300">
