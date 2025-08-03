@@ -5,7 +5,7 @@ import About from '../components/About';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
 import LatestBlogPosts from '../components/LatestBlogPosts'; 
-
+import Navbar from '@/components/Navbar';
 
 
 
@@ -14,10 +14,11 @@ export default function Home() {
 
     
     <main>
+      <Navbar />
       <Hero />
-      <Projects />
-      <Skills />
       <About />
+      <Skills />
+      <Projects />
       <LatestBlogPosts /> 
       <ContactForm />
       <Footer />

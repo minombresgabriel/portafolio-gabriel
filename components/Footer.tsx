@@ -6,7 +6,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gray-900 text-gray-300 py-12 px-6 mt-16 border-t border-gray-800 overflow-hidden">
+    <footer className="relative bg-gray-900 text-gray-300 py-12 px-6 mt-0 border-t border-gray-800 overflow-hidden">
       {/* Fondo con íconos de redes grandes y transparentes */}
       <div className="absolute inset-0 flex justify-center items-center opacity-10 pointer-events-none select-none space-x-16">
         <FaGithub size={120} />
