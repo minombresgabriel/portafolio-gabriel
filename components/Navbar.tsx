@@ -34,7 +34,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
         {/* Logo */}
-        <Link href="#home" className="text-cyan-400 font-extrabold text-2xl tracking-wide hover:text-cyan-300 transition-colors">
+        <Link href="https://portafolio-gabriel-avq9.vercel.app/#home" className="text-cyan-400 font-extrabold text-2xl tracking-wide hover:text-cyan-300 transition-colors">
           GABRIEL
         </Link>
 
