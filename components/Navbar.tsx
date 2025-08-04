@@ -66,7 +66,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/80 backdrop-blur-lg border-t border-cyan-400/40 shadow-lg"
+      className="md:hidden bg-white/10 backdrop-blur-lg border-t border-cyan-400/40 shadow-lg"
           >
             <div className="flex flex-col items-center gap-6 py-6">
               {navLinks.map((link) => (
