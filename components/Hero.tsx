@@ -1,7 +1,14 @@
 'use client';
 
 import Image from 'next/image';
-import { TypeAnimation } from 'react-type-animation';
+import dynamic from 'next/dynamic';
+
+const TypeAnimation = dynamic(
+  () =>
+    import('react-type-animation').then((mod) => mod.TypeAnimation), // ✅ Importa el named export correctamente
+  { ssr: false }
+);
+
 
 const Hero = () => {
   return (
@@ -9,14 +16,12 @@ const Hero = () => {
 
       {/* Fondo partículas futuristas */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Radial Glow suave */}
+        {/* Radial Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.15),transparent_70%)]"></div>
-        
-        {/* Partículas suaves */}
-        <div className="absolute inset-0 animate-[floatParticles_14s_linear_infinite] bg-[url('/images/particles.svg')] opacity-25"></div>
-        
-        {/* Líneas diagonales tipo scanner sutiles */}
-        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(255,0,255,0.08)_25%,transparent_25%,transparent_50%,rgba(0,255,255,0.08)_50%,rgba(255,0,255,0.08)_75%,transparent_75%,transparent)] bg-[length:40px_40px] animate-[scan_6s_linear_infinite]"></div>
+
+        {/* Partículas y scanner SOLO en desktop para no frenar móvil */}
+        <div className="hidden md:block absolute inset-0 animate-[floatParticles_14s_linear_infinite] bg-[url('/images/particles.svg')] opacity-25"></div>
+        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(120deg,rgba(255,0,255,0.08)_25%,transparent_25%,transparent_50%,rgba(0,255,255,0.08)_50%,rgba(255,0,255,0.08)_75%,transparent_75%,transparent)] bg-[length:40px_40px] animate-[scan_6s_linear_infinite]"></div>
       </div>
 
       {/* Contenido */}
@@ -27,6 +32,8 @@ const Hero = () => {
           width={160}
           height={160}
           sizes="(max-width: 768px) 96px, 160px"
+          placeholder="blur"
+          blurDataURL="/images/gabriel-blur.jpg"
           className="rounded-full mx-auto mb-6 border-4 border-cyan-400 shadow-[0_0_15px_#00f0ff,0_0_30px_#00f0ff] hover:shadow-[0_0_25px_#00f0ff,0_0_40px_#ff00ff] transition-all duration-500"
           priority
         />
@@ -35,6 +42,7 @@ const Hero = () => {
           Gabriel Ramírez
         </h1>
 
+        {/* Animación de texto */}
         <TypeAnimation
           sequence={[
             'Full Stack Developer - MERN',
@@ -54,6 +62,7 @@ const Hero = () => {
           I am a Full Stack Developer with experience in developing systems that digitize processes and increase revenue. I work with modern technologies to deliver robust, scalable, and professional web products for real businesses.
         </p>
 
+        {/* Botones */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
             href="#projects"
