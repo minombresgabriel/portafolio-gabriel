@@ -58,6 +58,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {children}
+          <SpeedInsights /> 
       </body>
     </html>
   );
