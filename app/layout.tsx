@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script"; // ✅ Importa Script
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +35,22 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-
+      <head>
+        <meta name="google-site-verification" content="58Vp1nta6XRlZqQhThCX7mBzMvS29vy2hZZzAv0WZoc" />
+        {/* ✅ Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VC58Y8L7G3"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VC58Y8L7G3');
+          `}
+        </Script>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {/* ✅ Script reCAPTCHA */}
         <Script
@@ -43,7 +58,6 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {children}
-          <SpeedInsights /> 
       </body>
     </html>
   );
