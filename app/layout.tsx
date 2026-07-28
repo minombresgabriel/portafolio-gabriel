@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script"; // ✅ Importa Script
+import Script from "next/script";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import "./globals.css";
 
 
@@ -17,16 +18,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Gabriel Ramírez | Full Stack Developer",
   description:
-    "Professional portfolio of Gabriel Ramírez, full stack developer with experience in MERN, .NET, and more.",
+    "Professional portfolio of Gabriel Ramírez, full stack developer specialized in payment integrations, NestJS, PostgreSQL, and React.",
   keywords: [
     "Gabriel Ramírez",
     "desarrollador",
-    "MERN",
+    "NestJS",
     "Node.js",
     "React",
     "portafolio",
     "backend",
-    "freelance",
+    "payment integrations",
+    "Stripe",
+    "TypeScript",
   ],
 };
 
@@ -52,12 +55,11 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* ✅ Script reCAPTCHA */}
         <Script
           src="https://www.google.com/recaptcha/api.js?render=6LenyIArAAAAAPgXu-qESFv2bMmMRBDKMyhsOit2"
           strategy="afterInteractive"
         />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

@@ -2,24 +2,23 @@
 
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 const TypeAnimation = dynamic(
-  () =>
-    import('react-type-animation').then((mod) => mod.TypeAnimation), // ✅ Importa el named export correctamente
+  () => import('react-type-animation').then((mod) => mod.TypeAnimation),
   { ssr: false }
 );
 
-
 const Hero = () => {
+  const { t } = useLanguage();
+  const sequence = t.hero.typeSequence.flatMap((s) => [s, 2000] as [string, number]);
+
   return (
     <section className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-16 md:py-28 px-6 md:px-20 text-center overflow-hidden">
 
       {/* Fondo partículas futuristas */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Radial Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.15),transparent_70%)]"></div>
-
-        {/* Partículas y scanner SOLO en desktop para no frenar móvil */}
         <div className="hidden md:block absolute inset-0 animate-[floatParticles_14s_linear_infinite] bg-[url('/images/particles.svg')] opacity-25"></div>
         <div className="hidden md:block absolute inset-0 bg-[linear-gradient(120deg,rgba(255,0,255,0.08)_25%,transparent_25%,transparent_50%,rgba(0,255,255,0.08)_50%,rgba(255,0,255,0.08)_75%,transparent_75%,transparent)] bg-[length:40px_40px] animate-[scan_6s_linear_infinite]"></div>
       </div>
@@ -42,16 +41,9 @@ const Hero = () => {
           Gabriel Ramírez
         </h1>
 
-        {/* Animación de texto */}
         <TypeAnimation
-          sequence={[
-            'Full Stack Developer - MERN',
-            2000,
-            'Backend Specialist in APIs and Automation',
-            2000,
-            'Professional and Scalable Web Applications',
-            2000,
-          ]}
+          key={t.hero.typeSequence[0]}
+          sequence={sequence}
           wrapper="h2"
           speed={50}
           className="text-xl md:text-2xl font-medium text-cyan-400 mb-8"
@@ -59,7 +51,7 @@ const Hero = () => {
         />
 
         <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-300 mb-10">
-          I am a Full Stack Developer with experience in developing systems that digitize processes and increase revenue. I work with modern technologies to deliver robust, scalable, and professional web products for real businesses.
+          {t.hero.subtitle}
         </p>
 
         {/* Botones */}
@@ -68,18 +60,17 @@ const Hero = () => {
             href="#projects"
             className="w-full max-w-[250px] sm:w-auto bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-[0_0_10px_#00f0ff]"
           >
-            See my projects
+            {t.hero.cta_projects}
           </a>
           <a
             href="#contact"
             className="w-full max-w-[250px] sm:w-auto border border-white hover:bg-white hover:text-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-[0_0_5px_#ff00ff]"
           >
-            Contact me
+            {t.hero.cta_contact}
           </a>
         </div>
       </div>
 
-      {/* Animaciones extras */}
       <style jsx>{`
         @keyframes scan {
           0% { background-position: 0 0; }
