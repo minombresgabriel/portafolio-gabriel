@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Artifact"
+      "Artifact",
+      "Bash(npm run *)",
+      "Bash(mkdir -p /home/gabriel/.claude/jobs/d545a462/tmp/lockcheck)",
+      "Bash(cp /mnt/c/Users/diego/Desktop/portafolio-gabriel/package.json /mnt/c/Users/diego/Desktop/portafolio-gabriel/package-lock.json /home/gabriel/.claude/jobs/d545a462/tmp/lockcheck/)",
+      "Bash(npm ci *)",
+      "WebSearch",
+      "Bash(npm view *)",
+      "Bash(node -e ' *)"
     ]
   }
 }
