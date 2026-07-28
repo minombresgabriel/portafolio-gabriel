@@ -22,7 +22,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-900 text-white py-28 px-6 md:px-20 overflow-hidden min-h-screen flex flex-col md:flex-row items-center md:items-stretch"
+      className="scroll-mt-24 relative bg-gradient-to-b from-gray-950 via-gray-900 to-gray-900 text-white py-28 px-6 md:px-20 overflow-hidden min-h-screen flex flex-col md:flex-row items-center md:items-stretch"
     >
       <div className="absolute inset-0 pointer-events-none opacity-[0.06] bg-[radial-gradient(white_1px,transparent_1px)] [background-size:24px_24px]"></div>
       <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('/images/particles.svg')] bg-cover"></div>

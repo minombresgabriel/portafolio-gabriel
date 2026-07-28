@@ -18,11 +18,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: t.nav.home, href: 'https://portafolio-gabriel-avq9.vercel.app/#home' },
-    { name: t.nav.about, href: 'https://portafolio-gabriel-avq9.vercel.app/#about' },
-    { name: t.nav.projects, href: 'https://portafolio-gabriel-avq9.vercel.app/#projects' },
-    { name: t.nav.blog, href: 'https://portafolio-gabriel-avq9.vercel.app/#LatestBlogPosts' },
-    { name: t.nav.contact, href: 'https://portafolio-gabriel-avq9.vercel.app/#contact' },
+    { name: t.nav.home, href: '#home' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.skills, href: '#skills' },
+    { name: t.nav.projects, href: '#dual-ownership' },
+    { name: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
         {/* Logo */}
-        <Link href="https://portafolio-gabriel-avq9.vercel.app/#home" className="text-cyan-400 font-extrabold text-2xl tracking-wide hover:text-cyan-300 transition-colors">
+        <Link href="#home" className="text-cyan-400 font-extrabold text-2xl tracking-wide hover:text-cyan-300 transition-colors">
           GABRIEL
         </Link>
 

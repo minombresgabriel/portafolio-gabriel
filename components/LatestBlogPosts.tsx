@@ -7,8 +7,8 @@ export default async function LatestBlogPosts() {
   const latest = posts.slice(0, 3); // Solo los 3 más recientes
 
   return (
- <section className="p-6 sm:p-8 bg-white bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900"
- id="LatestBlogPosts">
+ <section className="scroll-mt-24 p-6 sm:p-8 bg-white bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900"
+ id="blog">
 <h2 className="text-5xl md:text-5xl font-extrabold text-center mb-10 mt-6 md:my-20 text-white tracking-tight select-none ">
     Latest Blog Articles
   </h2>      

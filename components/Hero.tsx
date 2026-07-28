@@ -2,25 +2,38 @@
 
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import HeroNetworkCanvas from './HeroNetworkCanvas';
+import StatTicker from './StatTicker';
 
 const TypeAnimation = dynamic(
   () => import('react-type-animation').then((mod) => mod.TypeAnimation),
   { ssr: false }
 );
 
+const lineVariants = {
+  hidden: { y: '110%' },
+  visible: (i: number) => ({
+    y: 0,
+    transition: { duration: 0.7, delay: 0.1 + i * 0.1, ease: [0.2, 0.8, 0.2, 1] as const },
+  }),
+};
+
 const Hero = () => {
   const { t } = useLanguage();
   const sequence = t.hero.typeSequence.flatMap((s) => [s, 2000] as [string, number]);
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-16 md:py-28 px-6 md:px-20 text-center overflow-hidden">
-
-      {/* Fondo partículas futuristas */}
+    <section
+      id="home"
+      className="scroll-mt-24 relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-16 md:py-28 px-6 md:px-20 text-center overflow-hidden"
+    >
+      {/* Fondo: red de pagos animada + scan-line existente */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.15),transparent_70%)]"></div>
-        <div className="hidden md:block absolute inset-0 animate-[floatParticles_14s_linear_infinite] bg-[url('/images/particles.svg')] opacity-25"></div>
-        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(120deg,rgba(255,0,255,0.08)_25%,transparent_25%,transparent_50%,rgba(0,255,255,0.08)_50%,rgba(255,0,255,0.08)_75%,transparent_75%,transparent)] bg-[length:40px_40px] animate-[scan_6s_linear_infinite]"></div>
+        <HeroNetworkCanvas />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.12),transparent_70%)]"></div>
+        <div className="hidden md:block absolute inset-0 bg-[linear-gradient(120deg,rgba(255,0,255,0.06)_25%,transparent_25%,transparent_50%,rgba(0,255,255,0.06)_50%,rgba(255,0,255,0.06)_75%,transparent_75%,transparent)] bg-[length:40px_40px] animate-[scan_6s_linear_infinite]"></div>
       </div>
 
       {/* Contenido */}
@@ -38,7 +51,28 @@ const Hero = () => {
         />
 
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 tracking-tight drop-shadow-[0_0_2px_#00f0ff]">
-          Gabriel Ramírez
+          <span className="block overflow-hidden">
+            <motion.span
+              custom={0}
+              initial="hidden"
+              animate="visible"
+              variants={lineVariants}
+              className="block"
+            >
+              Gabriel
+            </motion.span>
+          </span>
+          <span className="block overflow-hidden">
+            <motion.span
+              custom={1}
+              initial="hidden"
+              animate="visible"
+              variants={lineVariants}
+              className="block"
+            >
+              Ramírez
+            </motion.span>
+          </span>
         </h1>
 
         <TypeAnimation
@@ -57,7 +91,7 @@ const Hero = () => {
         {/* Botones */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
-            href="#projects"
+            href="#dual-ownership"
             className="w-full max-w-[250px] sm:w-auto bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-center shadow-[0_0_10px_#00f0ff]"
           >
             {t.hero.cta_projects}
@@ -69,16 +103,14 @@ const Hero = () => {
             {t.hero.cta_contact}
           </a>
         </div>
+
+        <StatTicker />
       </div>
 
       <style jsx>{`
         @keyframes scan {
           0% { background-position: 0 0; }
           100% { background-position: 40px 40px; }
-        }
-        @keyframes floatParticles {
-          0% { background-position: 0 0; }
-          100% { background-position: 100% 100%; }
         }
       `}</style>
     </section>

@@ -7,11 +7,15 @@ html {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --ink: #05070e;
+  --money-shot: #ff3d6e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-money-shot: var(--money-shot);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

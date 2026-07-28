@@ -1,7 +1,10 @@
+import type { CaseStudyId, ArchiveId } from '@/data/projects';
+
 export const en = {
   nav: {
     home: 'Home',
     about: 'About',
+    skills: 'Skills',
     projects: 'Projects',
     blog: 'Blog',
     contact: 'Contact',
@@ -16,6 +19,13 @@ export const en = {
       'Full Stack Developer specializing in payment integrations and financial systems. I build robust, production-ready platforms for real businesses.',
     cta_projects: 'See my projects',
     cta_contact: 'Contact me',
+    ticker: [
+      '6+ payment gateways live in production',
+      '8 providers unified into one view',
+      '0 double-charges — idempotent by design',
+      '400 → 7 commission rules, zero-deploy pricing',
+      '3DS/SCA compliant checkout',
+    ],
   },
   about: {
     heading: 'About Me',
@@ -28,46 +38,115 @@ export const en = {
   },
   skills: {
     heading: 'Technical Skills',
+    groups: {
+      frontend: 'Frontend & UI',
+      backend: 'Backend & APIs',
+      payments: 'Payments & Fintech',
+      infra: 'Infra & Deployment',
+      generalist: 'I also work with',
+    } satisfies Record<'frontend' | 'backend' | 'payments' | 'infra' | 'generalist', string>,
   },
-  projects: {
-    heading: 'Featured Projects',
-    github_label: 'See code on GitHub',
-    proprietary_label: 'Proprietary — no screenshot',
-    items: [
-      {
-        title: 'Payment Infrastructure — Travel Agency Platform',
-        description:
-          'Designed and implemented the payment infrastructure for a production travel agency platform, integrating 6+ international gateways (Stripe EU/US, PayPal Advanced Checkout, Revolut, Klarna, Scalapay, Inespay, Fliinow) with webhook handling, HMAC-SHA256 signature verification, and 3DS/SCA compliance.',
-        achievements: [
-          'Replaced a hardcoded commission system with a configurable dynamic engine supporting 7 formula types',
-          'Built an automated account ledger triggered by payment webhooks',
-          '6+ gateways in production with full reconciliation and audit trail',
-        ],
-      },
-      {
-        title: 'Roles & Permissions System',
-        description:
-          'Designed a granular, module-level permission system with dynamic menu rendering based on role. Conducted a security audit that identified and patched real route-guard bypass vulnerabilities in the platform.',
-        achievements: [
-          'Granular permissions per module with dynamic UI rendering per role',
-          'Security audit uncovered and resolved real authorization bypass vulnerabilities',
-        ],
-      },
-      {
-        title: 'Supplier System for Unicasa',
-        description:
-          'Complete web application developed for Unicasa suppliers (such as Coca-Cola) to check accounts payable. Includes backend in .NET Core and frontend in React, with SQL Server database.',
-        achievements: [
-          'Processed 500+ requests/day with less than 100ms response time',
-          'Deployed on IIS and used by real providers',
-          'Secure authentication and real-time queries',
-        ],
-      },
+  dualOwnership: {
+    heading: 'One Developer, Two Sides of the Stack',
+    financialLabel: 'Financial Core',
+    financialItems: [
+      'Commission engine: 7 configurable formula types replacing a 400-line switch/case',
+      '3DS/SCA compliance across Stripe, PayPal, and Klarna',
+      'Webhook-driven ledger with idempotent, atomic transfers',
+      '8 payment providers unified into a single operational view',
     ],
+    platformLabel: 'Platform Architecture',
+    platformItems: [
+      'Role & permission system designed from scratch',
+      'Security audit — found and patched real route-guard bypass vulnerabilities',
+      'Prisma migrations managed across dev, staging, and production',
+      'Supporting infra: cron jobs, B2B subdomain migration',
+    ],
+    closing: 'Most payments developers only touch one side of this. I own both.',
+  },
+  caseStudies: {
+    heading: 'Selected Case Studies',
+    items: {
+      'commissions-engine': {
+        title: 'Dynamic Payment Commissions Engine',
+        description:
+          'Replaced a 400-line hardcoded switch/case with a configurable commission engine supporting 7 formula types, driven entirely from an admin UI — no deploy required to change pricing.',
+        achievements: [
+          '7 configurable formula types covering every commission scenario in production',
+          'Admin-UI driven — pricing changes ship without a code deploy',
+          'Eliminated a 400-line hardcoded switch/case',
+        ],
+        shortTitle: 'Commissions',
+        figureWord: '400 → 7',
+      },
+      '3ds-enforcement': {
+        title: '3D Secure Enforcement — and Its Real-World Limits',
+        description:
+          "Implemented 3DS/SCA compliance across Stripe, PayPal, and Klarna. When friction rates didn't match expectations after launch, I investigated root cause and traced it to real issuer enrollment gaps — not application bugs.",
+        achievements: [
+          '3DS/SCA compliance shipped across 3 payment gateways',
+          'Root-caused unexpected friction rates post-launch',
+          'Diagnosis pointed to issuer-side enrollment gaps, not code defects',
+        ],
+        shortTitle: '3DS',
+        figureWord: '3DS',
+      },
+      'accounts-ledger': {
+        title: 'Automated Accounts Ledger',
+        description:
+          'Built a webhook-driven balance ledger with atomic transfers and idempotent fee handling — engineered so a retried or duplicate webhook can never produce a double-charge or leave an account in a half-updated state.',
+        achievements: [
+          'Webhook-driven balance updates, no manual reconciliation',
+          'Atomic transfers — no partial or half-applied states',
+          'Idempotent fee handling — duplicate webhooks never double-charge',
+        ],
+        shortTitle: 'Ledger',
+        figureWord: 'ATOMIC',
+      },
+      'unified-payments-view': {
+        title: 'Unified Multi-Provider Payments View',
+        description:
+          'Consolidated 8 separate payment providers into a single operational screen, giving the finance team one place to reconcile transactions instead of switching between eight dashboards.',
+        achievements: [
+          '8 payment providers consolidated into one screen',
+          'Built with React, Next.js, and Redux Toolkit / RTK Query',
+          "Cut the finance team's reconciliation workflow from 8 tools to 1",
+        ],
+        shortTitle: 'Unified View',
+        statLabel: 'payment providers, one screen',
+      },
+    } satisfies Record<
+      CaseStudyId,
+      {
+        title: string;
+        description: string;
+        achievements: string[];
+        shortTitle: string;
+        figureWord?: string;
+        statLabel?: string;
+      }
+    >,
+  },
+  archive: {
+    heading: 'Before Arcadia',
+    github_label: 'See code on GitHub',
+    items: {
+      unicasa: {
+        title: 'Supplier System — Unicasa',
+        description:
+          "An earlier role: a .NET Core/React supplier portal built for Unicasa's vendors (including Coca-Cola) to check accounts payable. 500+ requests/day, sub-100ms responses, deployed on IIS.",
+      },
+    } satisfies Record<ArchiveId, { title: string; description: string }>,
   },
   contact: {
-    heading: "Let's Work Together",
-    subheading: "Got a project in mind? Drop me a message and I'll get back to you soon.",
+    heading: "Let's Solve It Together",
+    subheading:
+      "A payments integration, a security audit, or a migration that can't go wrong — that's exactly the kind of problem I solve.",
+    availability: 'Open to remote roles · Caracas, Venezuela · English C1',
+    directLabel: 'Or reach out directly',
+    emailEndpoint: 'Email',
+    linkedinEndpoint: 'LinkedIn',
+    githubEndpoint: 'GitHub',
     name: 'Name',
     email: 'Email',
     message: 'Your message...',

@@ -5,6 +5,8 @@ import {
   FaNode,
   FaDatabase,
   FaAws,
+  FaIdCard,
+  FaChartBar,
 } from 'react-icons/fa';
 import {
   SiNextdotjs,
@@ -16,6 +18,12 @@ import {
   SiTypescript,
   SiVite,
   SiStripe,
+  SiRedux,
+  SiRender,
+  SiSupabase,
+  SiDotnet,
+  SiMongodb,
+  SiWordpress,
 } from 'react-icons/si';
 
 import { motion } from 'framer-motion';
@@ -24,6 +32,7 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 const skillGroups = [
   {
+    id: 'frontend' as const,
     gradient: 'from-cyan-400 to-blue-500',
     skills: [
       { icon: <FaReact />, name: 'React', color: '#61dafb' },
@@ -31,9 +40,11 @@ const skillGroups = [
       { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: '#38bdf8' },
       { icon: <SiTypescript />, name: 'TypeScript', color: '#3178c6' },
       { icon: <SiVite />, name: 'Vite', color: '#646cff' },
+      { icon: <SiRedux />, name: 'Redux Toolkit', color: '#764abc' },
     ],
   },
   {
+    id: 'backend' as const,
     gradient: 'from-green-400 to-emerald-500',
     skills: [
       { icon: <SiNestjs />, name: 'NestJS', color: '#e0234e' },
@@ -42,21 +53,34 @@ const skillGroups = [
     ],
   },
   {
+    id: 'payments' as const,
     gradient: 'from-purple-400 to-fuchsia-500',
     skills: [
       { icon: <SiPostgresql />, name: 'PostgreSQL', color: '#336791' },
       { icon: <SiPrisma />, name: 'Prisma', color: '#ffffff' },
       { icon: <SiStripe />, name: 'Stripe API', color: '#635bff' },
       { icon: <FaDatabase />, name: 'Webhooks / HMAC', color: '#f59e0b' },
+      { icon: <FaIdCard />, name: 'KYC (SumSub)', color: '#22d3ee' },
     ],
   },
   {
+    id: 'infra' as const,
     gradient: 'from-amber-400 to-orange-500',
     skills: [
       { icon: <FaAws />, name: 'AWS (basic)', color: '#ff9900' },
       { icon: <SiVercel />, name: 'Vercel', color: '#ffffff' },
+      { icon: <SiRender />, name: 'Render', color: '#46e3b7' },
+      { icon: <SiSupabase />, name: 'Supabase', color: '#3ecf8e' },
     ],
   },
+];
+
+const generalistSkills = [
+  { icon: <SiDotnet />, name: '.NET Core', color: '#512bd4' },
+  { icon: <FaDatabase />, name: 'SQL Server', color: '#a1a1aa' },
+  { icon: <SiMongodb />, name: 'MongoDB', color: '#47a248' },
+  { icon: <SiWordpress />, name: 'WordPress + SEO', color: '#21759b' },
+  { icon: <FaChartBar />, name: 'Power BI', color: '#f2c811' },
 ];
 
 const Skills = () => {
@@ -65,7 +89,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative pb-10 px-6 md:px-24 bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 overflow-hidden"
+      className="scroll-mt-24 relative pb-10 px-6 md:px-24 bg-gradient-to-b from-gray-900 via-gray-950 to-gray-900 overflow-hidden"
     >
       <h2 className="text-5xl font-extrabold text-center mb-20 text-white tracking-tight select-none">
         {t.skills.heading}
@@ -93,6 +117,7 @@ const Skills = () => {
                 <h3
                   className={`text-3xl font-semibold mb-8 bg-clip-text text-transparent bg-gradient-to-r ${group.gradient} select-none`}
                 >
+                  {t.skills.groups[group.id]}
                 </h3>
 
                 <div className="flex flex-wrap justify-center gap-8 text-gray-300">
@@ -123,6 +148,28 @@ const Skills = () => {
           </motion.div>
         ))}
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mx-auto mt-10 max-w-3xl rounded-2xl border border-white/5 p-6 opacity-80"
+      >
+        <h3 className="mb-4 text-center font-mono text-sm uppercase tracking-widest text-gray-500">
+          {t.skills.groups.generalist}
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6 text-gray-400">
+          {generalistSkills.map((skill, i) => (
+            <div key={i} className="flex flex-col items-center gap-1.5 text-center" title={skill.name}>
+              <div style={{ color: skill.color }} className="text-3xl opacity-80">
+                {skill.icon}
+              </div>
+              <span className="text-xs text-gray-500">{skill.name}</span>
+            </div>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 };

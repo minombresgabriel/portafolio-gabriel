@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiSend } from 'react-icons/fi';
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 declare global {
@@ -34,7 +35,7 @@ const ContactForm = () => {
   return (
     <section
       id="contact"
-      className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-28 px-6 md:px-20 overflow-hidden min-h-screen flex flex-col items-center"
+      className="scroll-mt-24 relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-28 px-6 md:px-20 overflow-hidden min-h-screen flex flex-col items-center"
     >
       <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('/images/particles.svg')] bg-cover"></div>
 
@@ -59,9 +60,40 @@ const ContactForm = () => {
         <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-6 tracking-tight">
           {c.heading}
         </h2>
-        <p className="text-center text-gray-300 mb-10">
+        <p className="text-center text-gray-300 mb-4">
           {c.subheading}
         </p>
+        <p className="text-center font-mono text-xs uppercase tracking-widest text-cyan-400 mb-10">
+          {c.availability}
+        </p>
+
+        <p className="text-center font-mono text-xs uppercase tracking-widest text-gray-500 mb-3">
+          {c.directLabel}
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10">
+          <a
+            href="mailto:minombresgabriel@gmail.com"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+          >
+            <FaEnvelope /> {c.emailEndpoint}
+          </a>
+          <a
+            href="https://linkedin.com/in/gabriel-ramirez-soto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+          >
+            <FaLinkedin /> {c.linkedinEndpoint}
+          </a>
+          <a
+            href="https://github.com/minombresgabriel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+          >
+            <FaGithub /> {c.githubEndpoint}
+          </a>
+        </div>
 
         <form
           action="https://formsubmit.co/minombresgabriel@gmail.com"
