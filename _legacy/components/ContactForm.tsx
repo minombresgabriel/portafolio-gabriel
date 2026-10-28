@@ -1,0 +1,153 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { FiSend } from 'react-icons/fi';
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
+const ContactForm = () => {
+  const [token, setToken] = useState<string>('');
+  const { t } = useLanguage();
+  const c = t.contact;
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.grecaptcha) {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha
+          .execute('6LenyIArAAAAAPgXu-qESFv2bMmMRBDKMyhsOit2', { action: 'submit' })
+          .then((recaptchaToken) => {
+            setToken(recaptchaToken);
+          });
+      });
+    }
+  }, []);
+
+  return (
+    <section
+      id="contact"
+      className="scroll-mt-24 relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white py-28 px-6 md:px-20 overflow-hidden min-h-screen flex flex-col items-center"
+    >
+      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[url('/images/particles.svg')] bg-cover"></div>
+
+      <motion.div
+        animate={{ y: [0, 15, 0] }}
+        transition={{ repeat: Infinity, duration: 6 }}
+        className="absolute -top-32 -left-32 w-96 h-96 bg-gradient-to-tr from-cyan-400 to-blue-500 opacity-10 blur-3xl rounded-full"
+      />
+      <motion.div
+        animate={{ y: [0, -15, 0] }}
+        transition={{ repeat: Infinity, duration: 7 }}
+        className="absolute -bottom-32 -right-32 w-96 h-96 bg-gradient-to-tr from-purple-400 to-cyan-500 opacity-10 blur-3xl rounded-full"
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        viewport={{ once: true }}
+        className="max-w-3xl w-full bg-black/40 backdrop-blur-lg p-10 rounded-3xl border border-cyan-400/80 shadow-[0_0_25px_#00f0ff] relative z-10"
+      >
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-6 tracking-tight">
+          {c.heading}
+        </h2>
+        <p className="text-center text-gray-300 mb-4">
+          {c.subheading}
+        </p>
+        <p className="text-center font-mono text-xs uppercase tracking-widest text-cyan-400 mb-10">
+          {c.availability}
+        </p>
+
+        <p className="text-center font-mono text-xs uppercase tracking-widest text-gray-500 mb-3">
+          {c.directLabel}
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10">
+          <a
+            href="mailto:minombresgabriel@gmail.com"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+          >
+            <FaEnvelope /> {c.emailEndpoint}
+          </a>
+          <a
+            href="https://linkedin.com/in/gabriel-ramirez-soto"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+          >
+            <FaLinkedin /> {c.linkedinEndpoint}
+          </a>
+          <a
+            href="https://github.com/minombresgabriel"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-cyan-400 transition-colors"
+          >
+            <FaGithub /> {c.githubEndpoint}
+          </a>
+        </div>
+
+        <form
+          action="https://formsubmit.co/minombresgabriel@gmail.com"
+          method="POST"
+          className="grid gap-6"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://portafolio-gabriel-avq9.vercel.app/gracias"
+          />
+          <input type="text" name="_honey" style={{ display: 'none' }} />
+          <input type="hidden" name="g-recaptcha-response" value={token} />
+
+          <motion.input
+            type="text"
+            name="name"
+            required
+            placeholder={c.name}
+            whileFocus={{ scale: 1.02 }}
+            className="w-full px-5 py-3 border border-cyan-400/50 rounded-xl bg-black/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-[0_0_10px_#00f0ff50] hover:shadow-[0_0_15px_#00f0ff80]"
+          />
+
+          <motion.input
+            type="email"
+            name="email"
+            required
+            placeholder={c.email}
+            whileFocus={{ scale: 1.02 }}
+            className="w-full px-5 py-3 border border-cyan-400/50 rounded-xl bg-black/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-[0_0_10px_#00f0ff50] hover:shadow-[0_0_15px_#00f0ff80]"
+          />
+
+          <motion.textarea
+            name="message"
+            rows={5}
+            required
+            placeholder={c.message}
+            whileFocus={{ scale: 1.02 }}
+            className="w-full px-5 py-3 border border-cyan-400/50 rounded-xl bg-black/30 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:border-transparent transition-all shadow-[0_0_10px_#00f0ff50] hover:shadow-[0_0_15px_#00f0ff80] resize-none"
+          />
+
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            type="submit"
+            className="mt-2 inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-black font-semibold py-3 px-8 rounded-xl shadow-[0_0_15px_#00f0ff] hover:shadow-[0_0_25px_#00f0ff] transition duration-300"
+          >
+            <FiSend className="mr-2" /> {c.submit}
+          </motion.button>
+        </form>
+      </motion.div>
+    </section>
+  );
+};
+
+export default ContactForm;

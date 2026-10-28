@@ -1,43 +1,293 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
+/* ------------------------------------------------------------------ */
+/* Tokens                                                              */
+/* ------------------------------------------------------------------ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0616;
+  --foreground: #ede6ff;
   --ink: #05070e;
-  --money-shot: #ff3d6e;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-ink: var(--ink);
-  --color-money-shot: var(--money-shot);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-press-start);
+  --font-vt: var(--font-vt323);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Game palette: deep purple night, sunset orange, cyan, gold. */
+@theme {
+  --color-night-950: #07041a;
+  --color-night-900: #0f0a2a;
+  --color-night-800: #1a1240;
+  --color-night-700: #2a1d5e;
+  --color-night-600: #3d2b80;
+  --color-dusk: #7b3fa8;
+  --color-rose: #e8457a;
+  --color-sunset: #ff8a2b;
+  --color-gold: #ffd23f;
+  --color-cyan: #3fe0ff;
+  --color-mint: #4ee88a;
+  --color-cream: #f6eedd;
+  --color-muted: #a99ccf;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-article h2 {
-  @apply text-2xl font-bold text-white mt-8 mb-4;
+
+/* ------------------------------------------------------------------ */
+/* Game shell                                                          */
+/* ------------------------------------------------------------------ */
+
+.game-root {
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 30%, #1d1145 0%, #0a0616 60%, #05030c 100%);
 }
-article h3 {
-  @apply text-xl font-semibold text-gray-200 mt-6 mb-3;
+
+/* The TV: sized so the whole set always fits the viewport (4:3 picture). */
+.tv {
+  width: min(calc(100vw - 32px), calc((100dvh - 88px) * 1.22), 1120px);
+  padding: 2.6% 2.6% 0;
+  border-radius: 22px;
+  container-type: inline-size;
+  background:
+    linear-gradient(180deg, #2b2733 0%, #1a1720 55%, #121016 100%);
+  box-shadow:
+    0 0 0 2px #0b0a0e,
+    inset 0 2px 0 #3d3846,
+    inset 0 -3px 0 #08070a,
+    0 30px 60px -20px rgba(0, 0, 0, 0.9),
+    0 0 120px -30px rgba(123, 63, 168, 0.55);
 }
-article p {
-  @apply text-base text-gray-300 mb-4;
+
+.tv-bezel {
+  padding: 1.4%;
+  border-radius: 14px;
+  background: #0b0a0e;
+  box-shadow: inset 0 0 0 2px #050407, inset 0 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* The picture tube. Size container so children scale with it. */
+.crt {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 3.2% / 4.2%;
+  background: var(--color-night-950);
+  container-type: size;
+  isolation: isolate;
+  --fs-logo: clamp(18px, 7.4cqw, 76px);
+  --fs-h1: clamp(11px, 3.1cqw, 30px);
+  --fs-menu: clamp(10px, 2.5cqw, 24px);
+  --fs-small: clamp(8px, 1.45cqw, 14px);
+  --fs-body: clamp(16px, 3cqw, 30px);
+  --gutter: clamp(10px, 4cqw, 44px);
+}
+
+/* Glass: curvature shading, glow and vignette (always on, subtle). */
+.crt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 62%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.06) 0%, transparent 28%);
+  box-shadow: inset 0 0 4cqw rgba(0, 0, 0, 0.7);
+}
+
+/* Scanlines + flicker, toggleable. */
+.crt.crt-fx::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 41;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.28) 0px,
+    rgba(0, 0, 0, 0.28) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: crt-flicker 6s steps(1) infinite;
+}
+
+.crt.crt-fx .crt-content {
+  text-shadow: 0 0 6px rgba(160, 120, 255, 0.35);
+}
+
+@keyframes crt-flicker {
+  0%, 100% { opacity: 1; }
+  47% { opacity: 0.85; }
+  48% { opacity: 1; }
+  73% { opacity: 0.92; }
+  74% { opacity: 1; }
+}
+
+.tv-panel {
+  height: clamp(28px, 5.2cqw, 52px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Pixel primitives                                                    */
+/* ------------------------------------------------------------------ */
+
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.font-pixel {
+  font-family: var(--font-press-start), monospace;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+.font-vt {
+  font-family: var(--font-vt323), monospace;
+  line-height: 1.15;
+}
+
+/* Hard-edged "pixel border" panels. */
+.pixel-panel {
+  background: rgba(15, 10, 42, 0.92);
+  box-shadow:
+    0 0 0 2px #07041a,
+    0 0 0 4px var(--color-night-600),
+    0 0 0 6px #07041a,
+    inset 0 0 0 2px rgba(255, 255, 255, 0.04);
+}
+
+.blink {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.cursor-bob {
+  animation: cursor-bob 0.6s steps(2) infinite alternate;
+}
+
+@keyframes cursor-bob {
+  from { transform: translateX(0); }
+  to { transform: translateX(25%); }
+}
+
+/* Sprite sheets: the sheet slides left one frame per step. */
+@keyframes sprite-play {
+  to { transform: translateX(-100%); }
+}
+
+/* Stat bars read as discrete pixel segments (10 per bar). */
+.stat-track::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(10% - 2px),
+    #07041a calc(10% - 2px),
+    #07041a 10%
+  );
+}
+
+/* Title logo: chunky gradient letters with a hard outline and a sweeping shine. */
+.logo-text {
+  position: relative;
+  display: inline-block;
+  line-height: 1.15;
+}
+
+.logo-text::before {
+  content: attr(data-text);
+  content: attr(data-text) / "";
+  position: absolute;
+  inset: 0;
+  color: #2a0f2e;
+  -webkit-text-stroke: 0.22em #2a0f2e;
+  text-shadow: 0 0.14em 0 #12061a, 0 0.14em 0 #12061a;
+}
+
+.logo-fill {
+  position: relative;
+  color: transparent;
+  background:
+    linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.95) 48%, transparent 56%) no-repeat,
+    linear-gradient(180deg, #fff3b0 0%, #ffd23f 30%, #ff8a2b 62%, #e8457a 100%);
+  background-size: 250% 100%, 100% 100%;
+  background-position: 200% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: logo-shine 4.5s steps(24) infinite;
+}
+
+@keyframes logo-shine {
+  0%, 55% { background-position: 200% 0, 0 0; }
+  100% { background-position: -100% 0, 0 0; }
+}
+
+/* Boot: white line expanding into the picture. */
+.boot-line {
+  animation: boot-line 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes boot-line {
+  0% { transform: scale(0, 0.004); opacity: 1; }
+  40% { transform: scale(1, 0.004); opacity: 1; }
+  100% { transform: scale(1, 1); opacity: 0; }
+}
+
+.boot-logo {
+  opacity: 0;
+  animation: boot-logo 0.5s steps(5) 0.75s forwards;
+}
+
+@keyframes boot-logo {
+  to { opacity: 1; }
+}
+
+.boot-glow {
+  text-shadow: 0 0 12px rgba(160, 200, 255, 0.9), 0 0 32px rgba(120, 140, 255, 0.6);
+}
+
+/* Visible keyboard focus everywhere inside the game. */
+.game-root :focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Reduced motion: no flicker, no shine, no bob; things appear at once */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .crt.crt-fx::after,
+  .sprite-sheet,
+  .logo-fill,
+  .cursor-bob,
+  .blink {
+    animation: none !important;
+  }
+  .boot-line {
+    animation: none;
+    opacity: 0;
+  }
+  .boot-logo {
+    animation: none;
+    opacity: 1;
+  }
 }
