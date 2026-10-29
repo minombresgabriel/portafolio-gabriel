@@ -33,7 +33,7 @@ export default function BossScreen({ boss }: Props) {
   useGameControls({ left: () => goToBoss(index - 1), right: () => goToBoss(index + 1) });
 
   return (
-    <div className="absolute inset-0 flex flex-col gap-[3cqh] px-[var(--gutter)] pt-[7cqh] pb-[3cqh]">
+    <div className="absolute inset-0 flex flex-col gap-[3cqh] px-[var(--gutter)] pt-[7cqh] pb-[3cqh] hh:overflow-y-auto hh:pt-[46px] hh:gap-[18px]">
       <header className="pixel-panel px-[1.2em] py-[0.9em]">
         <p className="font-pixel text-[length:var(--fs-small)] text-sunset">
           {c.story.worlds.w6.label}-{index + 1}
@@ -43,12 +43,12 @@ export default function BossScreen({ boss }: Props) {
         </h1>
       </header>
 
-      <div className="grid min-h-0 flex-1 grid-cols-[34%_1fr] gap-[3cqw]">
-        <div className="pixel-panel flex min-h-0 items-center justify-center bg-gradient-to-b from-night-800 to-night-950">
-          <Sprite src={`/sprites/bosses/${boss}.svg`} frameWidth={48} frameHeight={48} frames={2} fps={2} className="w-[70%] max-h-[90%]" />
+      <div className="grid min-h-0 flex-1 grid-cols-[34%_1fr] gap-[3cqw] hh:flex-none hh:grid-cols-1 hh:gap-[18px]">
+        <div className="pixel-panel flex min-h-0 items-center justify-center bg-gradient-to-b from-night-800 to-night-950 hh:h-[56cqw]">
+          <Sprite src={`/sprites/bosses/${boss}.svg`} frameWidth={48} frameHeight={48} frames={2} fps={2} className="w-[70%] max-h-[90%] hh:h-[85%] hh:w-auto" />
         </div>
 
-        <div className="pixel-panel flex min-h-0 flex-col gap-[0.8em] overflow-hidden px-[1.2em] py-[1em]">
+        <div className="pixel-panel flex min-h-0 flex-col gap-[0.8em] overflow-hidden px-[1.2em] py-[1em] hh:overflow-visible">
           <p className="font-vt text-[length:var(--fs-body)] text-muted">{b.intro}</p>
           <p className="font-vt text-[length:var(--fs-body)] text-cream">{b.story}</p>
           <motion.p
@@ -77,7 +77,7 @@ export default function BossScreen({ boss }: Props) {
         </div>
       </div>
 
-      <div className="pixel-panel flex items-center justify-between gap-[1em] px-[1.2em] py-[0.7em]">
+      <div className="pixel-panel flex items-center justify-between gap-[1em] px-[1.2em] py-[0.7em] hh:flex-wrap">
         <p className="font-pixel text-[length:var(--fs-small)] text-gold">
           ★ {c.level.reward}: +{shared.rewardXp} XP
         </p>

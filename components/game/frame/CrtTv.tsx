@@ -4,8 +4,9 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { useSettings } from '@/lib/game/settings';
+import HandheldPad from './HandheldPad';
 
-/** Desktop frame: a CRT television with its control panel and a footer legend. */
+/** Desktop frame: a CRT television with its control panel and a footer legend. On phones, CSS turns it into a handheld. */
 export default function CrtTv({ children }: { children: ReactNode }) {
   const { c, toggle } = useLanguage();
   const { crtFx, toggleCrtFx } = useSettings();
@@ -14,7 +15,7 @@ export default function CrtTv({ children }: { children: ReactNode }) {
     'rounded-[3px] bg-[#0f0d13] px-[0.9em] py-[0.45em] font-pixel text-[length:var(--fs-small)] text-[#8f8a9c] shadow-[inset_0_-2px_0_#000,0_1px_0_#3a3542] hover:text-cream';
 
   return (
-    <main className="game-root flex flex-col items-center justify-center gap-3 px-4">
+    <main className="game-root flex flex-col items-center justify-center gap-2 px-3">
       <div className="tv">
         <div className="tv-bezel">
           <div className={`crt ${crtFx ? 'crt-fx' : ''}`}>{children}</div>
@@ -37,9 +38,11 @@ export default function CrtTv({ children }: { children: ReactNode }) {
             </button>
           </div>
         </div>
+
+        <HandheldPad />
       </div>
 
-      <footer className="hidden w-full max-w-[1120px] items-center justify-between gap-4 font-pixel text-[10px] text-muted/70 md:flex">
+      <footer className="hidden w-[var(--tv-w)] items-center justify-between gap-4 font-pixel text-[10px] text-muted/70 md:flex">
         <span>{c.ui.footerControls}</span>
         <Link href="/resume" className="hover:text-cream">
           {c.ui.footerSkip}

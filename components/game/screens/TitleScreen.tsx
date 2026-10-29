@@ -39,10 +39,10 @@ export default function TitleScreen({ active }: Props) {
               <span className="logo-fill">{c.ui.gameTitleLine2}</span>
             </span>
           </span>
-          <span className="mt-[0.9em] flex items-center justify-center gap-[0.8em] text-[length:var(--fs-h1)] text-cream">
-            <span aria-hidden="true" className="h-[0.25em] w-[2.4em] bg-sunset" />
+          <span className="mt-[0.9em] flex items-center justify-center gap-[0.8em] text-[length:clamp(10px,2.6cqw,26px)] whitespace-nowrap text-cream hh:text-[length:3.6cqw]">
+            <span aria-hidden="true" className="h-[0.25em] w-[1.6em] bg-sunset hh:hidden" />
             {c.ui.gameSubtitle}
-            <span aria-hidden="true" className="h-[0.25em] w-[2.4em] bg-sunset" />
+            <span aria-hidden="true" className="h-[0.25em] w-[1.6em] bg-sunset hh:hidden" />
           </span>
         </h1>
 

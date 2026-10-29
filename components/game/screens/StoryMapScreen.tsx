@@ -39,6 +39,8 @@ const ROUTES: Point[][] = [
 ];
 
 const OCEAN_LEGS = new Set([1, 2]);
+/** Krality, my own company: always drawn in gold so it stands out. */
+const FEATURED: WorldId = 'w7';
 
 const pct = ([x, y]: Point) => ({ left: `${(x / MAP_W) * 100}%`, top: `${(y / MAP_H) * 100}%` });
 
@@ -89,10 +91,10 @@ export default function StoryMapScreen() {
   const target = path[path.length - 1];
 
   return (
-    <div className="absolute inset-0 flex flex-col gap-[2.5cqh] px-[var(--gutter)] pt-[7cqh] pb-[3cqh]">
+    <div className="absolute inset-0 flex flex-col gap-[2.5cqh] px-[var(--gutter)] pt-[7cqh] pb-[3cqh] hh:overflow-y-auto hh:pt-[46px] hh:gap-[18px]">
       <h1 className="sr-only">{c.story.heading}</h1>
 
-      <div className="grid min-h-0 flex-1 grid-cols-[1fr_24%] gap-[2.5cqw]">
+      <div className="grid min-h-0 flex-1 grid-cols-[1fr_24%] gap-[2.5cqw] hh:flex-none hh:grid-cols-1 hh:gap-[18px]">
         {/* Map */}
         <div className="pixel-panel relative flex min-h-0 items-center justify-center overflow-hidden bg-[#16285e]">
           <div className="relative aspect-[4/3] max-h-full w-full">
@@ -135,6 +137,7 @@ export default function StoryMapScreen() {
             {WORLD_ORDER.map((id, i) => {
               const locked = c.story.worlds[id].locked;
               const active = i === cursor;
+              const featured = id === FEATURED;
               return (
                 <button
                   key={id}
@@ -143,8 +146,8 @@ export default function StoryMapScreen() {
                   aria-hidden="true"
                   onClick={() => (active ? open(i) : moveTo(i))}
                   className={`absolute flex h-[7%] w-[5.25%] -translate-x-1/2 -translate-y-1/2 items-center justify-center font-pixel text-[length:clamp(6px,1.2cqw,12px)] ${
-                    active ? 'bg-gold text-night-950' : locked ? 'bg-night-700 text-muted' : 'bg-sunset text-night-950'
-                  } shadow-[0_0_0_2px_#07041a]`}
+                    active || featured ? 'bg-gold text-night-950' : locked ? 'bg-night-700 text-muted' : 'bg-sunset text-night-950'
+                  } ${featured ? 'shadow-[0_0_0_2px_#07041a,0_0_0_4px_#fff1a8,0_0_14px_4px_#ffd23f]' : 'shadow-[0_0_0_2px_#07041a]'}`}
                   style={pct(NODES[id])}
                 >
                   {locked ? <PixelIcon src="/sprites/achievements/locked.svg" className="h-[80%] w-auto" /> : i + 1}
@@ -178,10 +181,11 @@ export default function StoryMapScreen() {
         </div>
 
         {/* Year list */}
-        <ol className="pixel-panel flex min-h-0 flex-col justify-between px-[0.8em] py-[1em]" aria-label={c.story.heading}>
+        <ol className="pixel-panel flex min-h-0 flex-col justify-between px-[0.8em] py-[1em] hh:grid hh:grid-cols-2 hh:gap-[0.9em]" aria-label={c.story.heading}>
           {WORLD_ORDER.map((id, i) => {
             const w = c.story.worlds[id];
             const active = i === cursor;
+            const featured = id === FEATURED;
             return (
               <li key={id}>
                 <button
@@ -196,17 +200,18 @@ export default function StoryMapScreen() {
                   onFocus={() => moveTo(i, false)}
                   onClick={() => open(i)}
                   className={`flex w-full items-center gap-[0.7em] font-pixel text-[length:var(--fs-small)] ${
-                    active ? 'text-gold' : w.locked ? 'text-muted/60' : 'text-cream/85 hover:text-cream'
-                  }`}
+                    active || featured ? 'text-gold' : w.locked ? 'text-muted/60' : 'text-cream/85 hover:text-cream'
+                  } ${featured ? '[text-shadow:0_0_0.5em_#ffd23f]' : ''}`}
                 >
                   <span
                     className={`flex h-[1.8em] w-[1.8em] shrink-0 items-center justify-center ${
-                      active ? 'bg-gold text-night-950' : 'bg-night-700'
-                    }`}
+                      active || featured ? 'bg-gold text-night-950' : 'bg-night-700'
+                    } ${featured ? 'shadow-[0_0_0_2px_#fff1a8,0_0_10px_2px_#ffd23f] [text-shadow:none]' : ''}`}
                   >
                     {w.locked ? '?' : i + 1}
                   </span>
                   {shared.worldYears[id].replace('NOW', c.story.now)}
+                  {featured && <span aria-hidden="true">★</span>}
                 </button>
               </li>
             );
@@ -214,7 +219,7 @@ export default function StoryMapScreen() {
         </ol>
       </div>
 
-      <div className="flex items-center justify-between gap-[1em]">
+      <div className="flex items-center justify-between gap-[1em] hh:flex-col hh:items-start">
         <p className="min-w-0 truncate font-vt text-[length:var(--fs-body)] text-cream" aria-live="polite">
           <span className="text-gold">{world.label}</span> · {world.title}
         </p>

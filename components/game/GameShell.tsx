@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { NavigationProvider, useNavigation } from '@/lib/game/navigation';
 import { SettingsProvider } from '@/lib/game/settings';
 import { readStorage, writeStorage } from '@/lib/game/safeStorage';
@@ -13,7 +12,7 @@ import SkipToResume from './frame/SkipToResume';
 import BootScreen from './screens/BootScreen';
 import TitleScreen from './screens/TitleScreen';
 import MenuScreen from './screens/MenuScreen';
-import PlaceholderScreen from './screens/PlaceholderScreen';
+import MultiplayerScreen from './screens/MultiplayerScreen';
 import PlayerCardScreen from './screens/PlayerCardScreen';
 import AchievementsScreen from './screens/AchievementsScreen';
 import InventoryScreen from './screens/InventoryScreen';
@@ -27,7 +26,6 @@ const BOOT_KEY = 'gr-booted';
 type BootState = 'pending' | 'playing' | 'done';
 
 function ScreenView({ screen, titleActive }: { screen: Screen; titleActive: boolean }) {
-  const { c } = useLanguage();
   switch (screen.id) {
     case 'title':
       return <TitleScreen active={titleActive} />;
@@ -46,7 +44,7 @@ function ScreenView({ screen, titleActive }: { screen: Screen; titleActive: bool
     case 'inventory':
       return <InventoryScreen />;
     case 'multiplayer':
-      return <PlaceholderScreen title={c.menu.multiplayer} />;
+      return <MultiplayerScreen />;
   }
 }
 
