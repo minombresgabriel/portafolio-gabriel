@@ -9,7 +9,7 @@ import ControlHints from '../ui/ControlHints';
 import PixelIcon from '../ui/PixelIcon';
 
 /** Tabs shown in-game; Spells is hidden for now (still listed on the resume). */
-const TABS = INVENTORY_TAB_ORDER.filter((id) => id !== 'spells');
+const TABS: readonly InventoryTabId[] = INVENTORY_TAB_ORDER.filter((id) => id !== 'spells');
 
 /**
  * RPG inventory. Two focus zones: the tab bar (←→ switch tabs, ↓ enters the grid)
